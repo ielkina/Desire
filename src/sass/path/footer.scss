@@ -1,0 +1,86 @@
+@import "vars.scss";
+
+.footer {
+  &__content {
+    background-color: $grey;
+    padding: 60px 0 80px;
+    // height: 342px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info {
+    width: 540px;
+  }
+
+  &__info-title {
+    color: $title;
+    @extend %title-font;
+    margin-bottom: 14px;
+    line-height: 23px;
+  }
+
+  &__info-text {
+    margin-bottom: 16px;
+    line-height: 27px;
+    max-width: 475px;
+  }
+
+  &__info-email {
+    font-weight: 600;
+    font-size: 14px;
+    color: $title;
+    margin-bottom: 22px;
+    padding-left: 30px;
+    display: inline-block;
+  }
+
+  &__form {}
+
+  &__form-input {
+    background-color: $grey;
+    color: #A1A1A1;
+    width: 368px;
+    height: 40px;
+    border-radius: 21px;
+    border: 1px solid #383636;
+    mix-blend-mode: normal;
+    opacity: 0.7;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  &__form-button {
+    border-radius: 21px;
+    color: #fffff0;
+    width: 160px;
+    height: 40px;
+    background-color: $title;
+  }
+
+  &__copyring {
+    color: #A1A1A1;
+    background-color: $title;
+    text-align: center;
+    padding: 42px 0px 41px;
+  }
+}
+
+// __social {}
+
+// __social-item {}
+
+// __social-link {}
+
+// __menu {}
+
+// __menu-list {}
+
+// __menu-item {}
+
+// __menu-link {}
+
+// __copyring {}

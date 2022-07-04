@@ -1,7 +1,6 @@
 /gulpfile.js
 /.vscode
 /node_modules
-/src
 desire.fig
 package-lock.json
 package.json
