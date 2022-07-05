@@ -12,7 +12,6 @@ const size = require("gulp-size");
 const pugs = require('gulp-pug');
 const replace = require('gulp-replace');
 const webpHtml = require('gulp-webp-html');
-
 //Обработка PUG
 const pug = () => {
   return src(path.pug.src)

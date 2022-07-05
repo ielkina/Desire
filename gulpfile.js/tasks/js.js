@@ -27,9 +27,8 @@ const js = () => {
     )
     .pipe(babel())
     .pipe(webpack({
-      mode: "production"
-      // "development"
-      
+      mode: "development"
+      //"production" 
     }))
     .pipe(size({
       title: "Размер файлов JS"

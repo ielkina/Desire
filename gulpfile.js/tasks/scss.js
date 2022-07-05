@@ -36,7 +36,6 @@ const scss = () => {
     )
     .pipe(replace(/@img\//g, "../img/"))
     .pipe(concat("style.css"))
-
     // .pipe(webphtmlnosvg())
     .pipe(sass({
       outputStyle: "expanded"
