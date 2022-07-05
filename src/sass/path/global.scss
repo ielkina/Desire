@@ -3,6 +3,9 @@ html,
 body {
 	height: 100%;
 	color: $default;
+	overflow-x: hidden;
+	min-width: 320px;
+
 }
 
 .wrapper {
