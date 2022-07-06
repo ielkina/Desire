@@ -16,17 +16,17 @@
   \************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_modals_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/modals.js */ \"./src/js/modules/modals.js\");\n// import * as webpFunctions from \"./modules/webp.js\";\r\n\r\n// webpFunctions.isWebp();\r\n_modules_modals_js__WEBPACK_IMPORTED_MODULE_0__.modals();\r\n// $(function () {\r\n//   $('.header__btn').on('click', function(){\r\n//     $('.rightside-menu').removeClass('rightside-menu--close');\r\n//   });\r\n//   $('.rightside-menu__close').on('click', function(){\r\n//     $('.rightside-menu').addClass('rightside-menu--close');\r\n//   });\r\n// })\n\n//# sourceURL=webpack://new/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_webp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/webp.js */ \"./src/js/modules/webp.js\");\n\r\n_modules_webp_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();\r\n// import * as modulesFunctions from \"./modules/modals.js\";\r\n// modulesFunctions.modals();\r\n//модально окно первой страници переписать\r\n$(function () {\r\n  $('.header__btn').on('click', function(){\r\n    $('.rightside-menu').removeClass('rightside-menu--close');\r\n  });\r\n  $('.rightside-menu__close').on('click', function(){\r\n    $('.rightside-menu').addClass('rightside-menu--close');\r\n  });\r\n})\n\n//# sourceURL=webpack://new/./src/js/main.js?");
 
 /***/ }),
 
-/***/ "./src/js/modules/modals.js":
-/*!**********************************!*\
-  !*** ./src/js/modules/modals.js ***!
-  \**********************************/
+/***/ "./src/js/modules/webp.js":
+/*!********************************!*\
+  !*** ./src/js/modules/webp.js ***!
+  \********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modals\": function() { return /* binding */ modals; }\n/* harmony export */ });\nfunction modals() {\r\n  const modalBtns = document.querySelectorAll('.header__btn');\r\n  const modals = document.querySelectorAll('.rightside-menu__close');\r\n  const body = document.body;\r\n\r\n  function openModal(elem) {\r\n    elem.classList.add('_active');\r\n    body.classList.add('_locked');\r\n  }\r\n\r\n  function closeModal(e) {\r\n    if (e.target.classList.contains('rightside-menu__close') || e.target.closest('.rightside-menu__close') || e.target.classList.contains('modal-bg')) {\r\n      e.target.closest('.header__btn').classList.remove('_active');\r\n      body.classList.remove('_locked');\r\n    }\r\n  }\r\n\r\n  modalBtns.forEach(btn => {\r\n    btn.addEventListener('click', (e) => {\r\n      let data = e.target.dataset.modalOpen;\r\n      modals.forEach(modal => {\r\n        if (modal.dataset.modal == data || modal.dataset.modal == e.target.closest(\"._modal-open\").dataset.modalOpen) {\r\n          openModal(modal);\r\n        }\r\n      });\r\n    });\r\n  });\r\n  modals.forEach(modal => {\r\n    modal.addEventListener('click', e => closeModal(e));\r\n  });\r\n\r\n  window.addEventListener('keydown', e => {\r\n    modals.forEach(modal => {\r\n      if (e.key === \"Escape\" && modal.classList.contains('_active')) {\r\n        modal.classList.remove('_active');\r\n        body.classList.remove('_locked');\r\n      }\r\n    });\r\n  });\r\n}\n\n//# sourceURL=webpack://new/./src/js/modules/modals.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"isWebp\": function() { return /* binding */ isWebp; }\n/* harmony export */ });\n//Проверка поддержки webp, добавление класса webp или no-webp для HTML\r\nfunction isWebp() {\r\n\t//проверка поддержки webp\r\n\tfunction testWebp(callback) {\r\n\t\tlet webP = new Image();\r\n\t\twebP.onload = webP.onerror = function () {\r\n\t\t\tcallback(webP.height == 2);\r\n\t\t};\r\n\t\twebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';\r\n\t}\r\n\t//Добавление класса _webp или _no-webp для HTML\r\n\ttestWebp(function (support) {\r\n\t\tlet className = support === true ? 'webp' : 'no-webp';\r\n\t\tdocument.documentElement.classList.add(className);\r\n\t});\r\n}\r\n\n\n//# sourceURL=webpack://new/./src/js/modules/webp.js?");
 
 /***/ })
 
