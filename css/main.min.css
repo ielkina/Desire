@@ -1,0 +1,208 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic&display=swap);
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap);
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+*,::after,::before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+ol[class],ul[class] {
+  list-style: none
+}
+
+a {
+  text-decoration: none
+}
+
+a,button {
+  cursor: pointer
+}
+
+img {
+  max-width: 100%;
+  display: block
+}
+
+input,textarea {
+  border-radius: 0;
+  outline: 0
+}
+
+button,input,select,textarea {
+  color: inherit;
+  border: 0
+}
+
+@font-face {
+  font-family:"OpenSans";src:url(../font/OpenSans-Regular.woff2) format("woff2"),url(../font/OpenSans-Regular.woff) format("woff");font-weight:400;font-display:swap;font-style:normal
+}
+
+@font-face {
+  font-family:"Montserrat";src:url(../font/Montserrat-Bold.woff2) format("woff2"),url(../font/Montserrat-Bold.woff) format("woff");font-weight:700;font-display:swap;font-style:normal
+}
+
+body,html {
+  height: 100%
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100%
+}
+
+.main {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto
+}
+
+.footer {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto
+}
+
+.container {
+  max-width: 1133px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2px
+}
+
+body {
+  background-color: #fff;
+  font-size: calc(14px + 2*(100vw - 340px)/793);
+  font-family: "OpenSans",sans-serif;
+  font-weight: 400;
+  line-height: 1.6875;
+  letter-spacing: normal;
+  color: #5a5a5a
+}
+
+.btn,.btn-tag {
+  font-family: "Open Sans",sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: ivory;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #363838;
+  border-radius: 21px;
+  border: 1px #363838 solid;
+  -webkit-transition: background-color,color,.5s ease-out;
+  transition: background-color,color,.5s ease-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.btn:hover {
+  background-color: ivory;
+  color: #363838
+}
+
+.btn:active {
+  -webkit-transform: scale(.96);
+  -ms-transform: scale(.96);
+  transform: scale(.96)
+}
+
+.btn-tag {
+  font-size: 14px;
+  color: #8f8d8d;
+  background-color: transparent;
+  border: 1px solid #8f8d8d
+}
+
+.btn-tag:hover {
+  background-color: #ffef35;
+  color: #363838;
+  border-color: #ffef35
+}
+
+.btn-tag:active,.play:active {
+  -webkit-transform: scale(.96);
+  -ms-transform: scale(.96);
+  transform: scale(.96)
+}
+
+.play {
+  width: 80px;
+  height: 80px;
+  background-color: #979797;
+  border-radius: 50px;
+  -webkit-transition: all .3s;
+  transition: all .3s
+}
+
+.play__go {
+  width: 0;
+  height: 0;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 28px solid rgba(255,255,255,.9294117647);
+  margin: 22px auto;
+  display: block;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.8509803922);
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.8509803922)
+}
+
+.input {
+  font-family: "Open Sans",sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #a1a1a1;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  border: 1px solid #dfdfdf;
+  border-radius: 20px;
+  -webkit-transition: background-color,color,.5s ease-out;
+  transition: background-color,color,.5s ease-out
+}
+
+.input:hover {
+  color: #363838
+}
+
+.input:focus {
+  border-color: #363838;
+  color: #363838
+}
+
+.block-title,.sub-title,.title {
+  color: #363838;
+  font-family: "Montserrat",sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 134px;
+  letter-spacing: 0
+}
+
+.block-title,.sub-title {
+  font-size: 60px;
+  line-height: 80px
+}
+
+.block-title {
+  font-size: 36px;
+  line-height: 51px
+}
+/*# sourceMappingURL=main.min.css.map */
