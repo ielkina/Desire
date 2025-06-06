@@ -28,23 +28,25 @@ img {
   display: block
 }
 
+input,textarea {
+  border-radius: 0;
+  outline: 0
+}
+
 button,input,select,textarea {
   color: inherit;
   border: 0
 }
 
-.btn,body {
+.btn,.btn-tag {
   font-family: "Open Sans",sans-serif;
-  font-size: 16px
-}
-
-.btn {
   font-weight: 600;
+  font-size: 16px;
+  color: ivory;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
   background-color: #363838;
-  color: ivory;
   border-radius: 21px;
   border: 1px #363838 solid;
   -webkit-transition: background-color,color,.5s ease-out;
@@ -66,16 +68,112 @@ button,input,select,textarea {
   transform: scale(.96)
 }
 
-body {
-  line-height: 27px;
+.btn-tag {
+  font-size: 14px;
+  color: #8f8d8d;
+  background-color: transparent;
+  border: 1px solid #8f8d8d
+}
+
+.btn-tag:hover {
+  background-color: #ffef35;
+  color: #363838;
+  border-color: #ffef35
+}
+
+.btn-tag:active,.play:active {
+  -webkit-transform: scale(.96);
+  -ms-transform: scale(.96);
+  transform: scale(.96)
+}
+
+.play {
+  width: 80px;
+  height: 80px;
+  background-color: #979797;
+  border-radius: 50px;
+  -webkit-transition: all .3s;
+  transition: all .3s
+}
+
+.play__go {
+  width: 0;
+  height: 0;
+  border-top: 18px solid transparent;
+  border-bottom: 18px solid transparent;
+  border-left: 28px solid rgba(255,255,255,.9294117647);
+  margin: 22px auto;
+  display: block;
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.8509803922);
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.8509803922)
+}
+
+.input {
+  font-family: "Open Sans",sans-serif;
   font-weight: 400;
+  font-size: 16px;
+  color: #a1a1a1;
+  -webkit-box-align: left;
+  -ms-flex-align: left;
+  align-items: left;
+  border: 1px solid #dfdfdf;
+  border-radius: 20px;
+  -webkit-transition: background-color,color,.5s ease-out;
+  transition: background-color,color,.5s ease-out
+}
+
+.input:hover {
+  color: #363838
+}
+
+.input:focus {
+  border-color: #363838;
+  color: #363838
+}
+
+.title,.title-sub {
+  font-weight: 700;
   letter-spacing: 0;
+  color: #363838
+}
+
+.title {
+  font-family: "Montserrat",sans-serif;
+  font-size: 110px;
+  line-height: 134px
+}
+
+.title-sub {
+  font-size: 60px;
+  line-height: 80px
+}
+
+.title-block,.title-sub,footer {
+  font-family: "Montserrat",sans-serif
+}
+
+.text,.title-block,body {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 51px;
+  letter-spacing: 0;
+  color: #363838
+}
+
+.text,body {
+  font-family: "Open Sans",sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 27px;
+  color: #5a5a5a
+}
+
+body {
   text-align: left;
   color: red
 }
 
 footer {
-  font-family: "Montserrat",sans-serif;
   font-weight: 110
 }
 /*# sourceMappingURL=main.min.css.map */
