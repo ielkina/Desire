@@ -1,3 +1,79 @@
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+*,::after,::before {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+ol[class],ul[class] {
+  list-style: none
+}
+
+a {
+  text-decoration: none
+}
+
+a,button {
+  cursor: pointer
+}
+
+img {
+  max-width: 100%;
+  display: block
+}
+
+button,input,select,textarea {
+  color: inherit;
+  border: 0
+}
+
+.btn,body {
+  font-family: "Open Sans",sans-serif;
+  font-size: 16px
+}
+
+.btn {
+  font-weight: 600;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #363838;
+  color: ivory;
+  border-radius: 21px;
+  border: 1px #363838 solid;
+  -webkit-transition: background-color,color,.5s ease-out;
+  transition: background-color,color,.5s ease-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+.btn:hover {
+  background-color: ivory;
+  color: #363838
+}
+
+.btn:active {
+  -webkit-transform: scale(.96);
+  -ms-transform: scale(.96);
+  transform: scale(.96)
+}
+
+body {
+  line-height: 27px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-align: left;
+  color: red
+}
+
 footer {
   font-family: "Montserrat",sans-serif;
   font-weight: 110
