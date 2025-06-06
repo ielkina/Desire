@@ -1,7 +1,3 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic&display=swap);
-
-@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap);
-
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box
@@ -40,14 +36,6 @@ input,textarea {
 button,input,select,textarea {
   color: inherit;
   border: 0
-}
-
-@font-face {
-  font-family:"OpenSans";src:url(../font/OpenSans-Regular.woff2) format("woff2"),url(../font/OpenSans-Regular.woff) format("woff");font-weight:400;font-display:swap;font-style:normal
-}
-
-@font-face {
-  font-family:"Montserrat";src:url(../font/Montserrat-Bold.woff2) format("woff2"),url(../font/Montserrat-Bold.woff) format("woff");font-weight:700;font-display:swap;font-style:normal
 }
 
 body,html {
