@@ -131,49 +131,38 @@ button,input,select,textarea {
   color: #363838
 }
 
-.title,.title-sub {
-  font-weight: 700;
-  letter-spacing: 0;
-  color: #363838
-}
-
-.title {
+.title,.title-block,.title-sub {
+  color: #363838;
   font-family: "Montserrat",sans-serif;
+  font-weight: 700;
   font-size: 110px;
-  line-height: 134px
+  line-height: 134px;
+  letter-spacing: 0
 }
 
-.title-sub {
+.title-block,.title-sub {
   font-size: 60px;
   line-height: 80px
 }
 
-.title-block,.title-sub,footer {
-  font-family: "Montserrat",sans-serif
-}
-
-.text,.title-block,body {
-  font-weight: 700;
+.title-block {
   font-size: 36px;
-  line-height: 51px;
-  letter-spacing: 0;
-  color: #363838
+  line-height: 51px
 }
 
 .text,body {
   font-family: "Open Sans",sans-serif;
-  font-weight: 400;
   font-size: 16px;
   line-height: 27px;
+  font-weight: 400;
+  letter-spacing: 0
+}
+
+.text {
   color: #5a5a5a
 }
 
 body {
-  text-align: left;
-  color: red
-}
-
-footer {
-  font-weight: 110
+  text-align: left
 }
 /*# sourceMappingURL=main.min.css.map */
