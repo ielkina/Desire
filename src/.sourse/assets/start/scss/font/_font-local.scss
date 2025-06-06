@@ -1,0 +1,39 @@
+@mixin font($font, $font-url, $weight, $style) {
+  @font-face {
+    font-family: '#{$font}';
+    src: url('/font/#{$font-url}.woff2') format('woff2'),
+    url('/font/#{$font-url}.woff') format('woff');
+    font-weight: #{$weight};
+    font-style: $style;
+    font-display: swap;
+    font-stretch: normal;
+    unicode-range: U+0020-2212;
+  }
+}
+
+//Подключения шрифтов в глобальном файле
+
+// @include font($font-glob, #{$font-glob}-#{$thin}, 100);
+// @include font($font-glob, #{$font-glob}-#{$thin-italic}, 100);
+// @include font($font-glob, #{$font-glob}-#{$extraLight}, 200);
+// @include font($font-glob, #{$font-glob}-#{$extraLightItalic}, 200);
+// @include font($font-glob, #{$font-glob}-#{$light}, 300);
+// @include font($font-glob, #{$font-glob}-#{$light-italic}, 300);
+// @include font($font-glob, #{$font-glob}-#{$regular}, 400);
+// @include font($font-glob, #{$font-glob}-#{$regularItalic}, 400);
+// @include font($font-h1, #{$font-h1}-#{$medium}, 500);
+// @include font(map-get($name, rubik), #{$font-h1}-#{$mediumItalic}, 500);
+// @include font($font-glob, #{$font-glob}-#{$semiBold}, 600);
+// @include font($font-glob, #{$font-glob}-#{$semiBoldItalic}, 600);
+// @include font($font-glob, #{$font-glob}-#{$bold}, 700);
+// @include font($font-glob, #{$font-glob}-#{$boldItalic}, 700);
+// @include font($font-glob, #{$font-glob}-#{$extraBold}, 800);
+// @include font($font-glob, #{$font-glob}-#{$extraBold-italic}, 800);
+// @include font($font-glob, #{$font-glob}-#{$black}, 900);
+// @include font($font-glob, #{$font-glob}-#{$black-italic}, 900);
+// @include font($font-glob, #{$font-glob}-#{$extraBlack-italic}, 950);
+// @include font($opensans, #{$opensans}-#{$extraBlack-italic}, 950);
+// @include font($font-name, #{$font-name}-#{$regular}, 400);
+// @include font($font-glob, #{$font-glob}-#{$regularItalic}, 400);
+// @include font($font-h1, #{$font-h1}-#{$medium}, 500);
+// @include font(map-get($name, rubik), #{$font-h1}-#{$mediumItalic}, 500);

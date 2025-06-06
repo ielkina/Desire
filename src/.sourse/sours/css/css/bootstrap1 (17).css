@@ -1,0 +1,14 @@
+.news {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 700px) {
+  .news {
+    text-align: center;
+    color: aqua;
+    background-color: blueviolet;
+    display: block;
+  }
+}

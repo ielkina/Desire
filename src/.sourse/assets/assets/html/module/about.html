@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('path/head.html', {"title": "About"})
+
+<body class="body">
+  <div class="breadcrumbs" aria-label="Breadcrumb">
+    <ul class="breadcrumbs__list">
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="index.html">Home</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link modal__link--active" href="about.html" aria-current="page">about</a>
+      </li>
+    </ul>
+  </div>
+  <header style="
+        background-image: url('@img/pexels-catalina-carvajal-herrera-9677898.webp');
+      ">
+    <div class="container">
+      <h1 class="title">Заголовок</h1>
+    </div>
+  </header>
+
+  <img src="@img/1.webp" alt="картинка" />
+  <img src="@img/pexels.jpg" alt="картинка" />
+  <img src="@img/1.png" alt="картинка" />
+  <script type="module" src="@js/main.min.js"></script>
+</body>
+
+</html>
+
+<!-- @@include_once('./path/news.html', {name: "ира", body: "елькина"}) -->
+
+<!-- @@loop('./path/loop-article.html', "./data/data.json") -->
+<!-- <div class="container">
+      <ul>
+        @@loop('./path/cards.html', '../data/card.json')
+      </ul>
+    </div> -->

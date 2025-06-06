@@ -1,0 +1,183 @@
+//ИМЯ ШРИФТА
+$rubik: 'Rubik';
+$opensans: 'OpenSans';
+$dmsans: 'DMSans';
+$poppins: 'Poppins';
+$roboto: 'Roboto';
+$quicksand: 'Quicksand';
+$myriadpro: 'MyriadPro';
+$montserrat: 'Montserrat';
+//группировка переменных
+$name: (
+  rubik: 'Rubik',
+  opensans: 'OpenSans',
+  dmsans: 'DMSans',
+  poppins: 'Poppins',
+  roboto: 'Roboto',
+  quicksand: 'Quicksand',
+  myriadpro: 'MyriadPro',
+  montserrat: 'Montserrat',
+);
+//синтаксис   font-family: map-get($name, opensans);
+
+//СТИЛЬ ШРИФТА
+$thin: 'Thin';
+$thin-italic: 'Thin-Italic';
+$extraLight: 'ExtraLight';
+$extraLightItalic: 'ExtraLightItalic';
+$light: 'Light';
+$light-italic: 'Light-Italic';
+$regular: 'Regular';
+$regularItalic: 'RegularItalic';
+$medium: 'Medium';
+$mediumItalic: 'MediumItalic';
+$semiBold: 'SemiBold';
+$semiBoldItalic: 'SemiBoldItalic';
+$bold: 'Bold';
+$boldItalic: 'BoldItalic';
+$extraBold: 'ExtraBold';
+$extraBold-italic: 'ExtraBold-Italic';
+$black: 'Black';
+$black-italic: 'Black-Italic';
+$extraBlack-italic: 'ExtraBlack-Italic';
+
+$style: (
+  thin: 'Thin',
+  thin-italic: 'Thin-Italic',
+  extraLight: 'ExtraLight',
+  extraLightItalic: 'ExtraLightItalic',
+  light: 'Light',
+  light-italic: 'Light-Italic',
+  regular: 'Regular',
+  regularItalic: 'RegularItalic',
+  medium: 'Medium',
+  mediumItalic: 'MediumItalic',
+  semiBold: 'SemiBold',
+  semiBoldItalic: 'SemiBoldItalic',
+  bold: 'Bold',
+  boldItalic: 'BoldItalic',
+  extraBold: 'ExtraBold',
+  extraBold-italic: 'ExtraBold-Italic',
+  black: 'Black',
+  black-italic: 'Black-Italic',
+  extraBlack-italic: 'ExtraBlack-Italic',
+);
+//синтаксис   font-family: map-get($style, bold);
+
+//ТИП ШРИФТА
+$sans-serif: sans-serif;
+$serif: unquote('serif');
+$monospace: monospace;
+
+
+
+
+
+//расчет высоты шрифтов если в макете они даны в пикселях
+@mixin line-height($size, $size-height-px) {
+  line-height: calc($size-height-px / $size);
+}
+
+//Проверка работы миксина
+// body {
+//   @include line-height(18, 27);
+// }
+
+//добавление(подключение) настроек шрифтов для глобальных(body) стилей
+@mixin font-glob($font,
+  $type,
+  $size,
+  $min-size,
+  $size-height-px,
+  $font-weight,
+  $min-screen) {
+  @include font-save($font, $type);
+  @include font-media($size, $min-size, $min-screen);
+  @include line-height($size, $size-height-px);
+  font-weight: $font-weight;
+}
+
+//Проверка работы миксина
+// body {
+// @include font-glob($opensans, $sans-serif, 16, 14, 27, 400, 320)
+// }
+
+// @include font-weight(Rubik, sans-serif, 400) или
+@mixin font-weight($font-name, $type, $font-weight) {
+  font-family: $font-name, $type;
+  font-weight: $font-weight;
+}
+
+//Проверка работы миксина
+// body {
+// @include font-weight($opensans, $sans-serif, 400)
+// }
+
+@mixin font-full($font-name, $type, $font-size, $font-weight) {
+  font-family: '#{$font-name}',
+  $type;
+  font-size: #{$font-size}px;
+  font-weight: $font-weight;
+}
+
+//Проверка работы миксина
+// body {
+// @include font-full(Rubik, 700, 58, $sans-serif) или
+// @include font-full($opensans, 300, 40, $sans-serif) или
+// @include font-full($font-glob, 400 ,40, $sans-serif) или
+// }
+
+@mixin font-100($font-size) {
+  font-size: #{$font-size}px;
+  font-weight: 100;
+}
+
+@mixin font-200($font-size) {
+  font-weight: 200;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-300($font-size) {
+  font-weight: 300;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-400($font-size) {
+  font-weight: 400;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-500($font-size) {
+  font-weight: 500;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-600($font-size) {
+  font-weight: 600;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-700($font-size) {
+  font-weight: 700;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-800($font-size) {
+  font-weight: 800;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-900($font-size) {
+  font-weight: 900;
+  font-size: #{$font-size}px;
+}
+
+@mixin font-950($font-size) {
+  font-weight: 950;
+  font-size: #{$font-size}px;
+}
+
+//Проверка работы миксина
+// body {
+//   @include font-400(18);
+// }

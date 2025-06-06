@@ -1,0 +1,88 @@
+//переменные 
+$fs: 80px;
+$col-1: #1f111146;
+$col-2: #23af11;
+$col-3: #aa1b73;
+
+// шаблонизация 
+%tplborder {
+  border-bottom: 5px dashed #444;
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+// миксины
+@mixin fonts($f, $a, $b) {
+  font-size: $f;
+  display: $a;
+  flex-wrap: $b;
+}
+
+//импорт других файлов 
+// @import "путь/имя файла";
+//вложенность 
+.block {
+  //вычисление необходимого размера автоматически
+  width: 300px / 960px * 100%;
+  background-color: #ffffff00;
+  font-size: $fs;
+  line-height: 20px;
+
+  >p {
+    //применение селектора только к параметрам первого уровня 
+    //без знака > ко всем р блока  
+    color: $col-1;
+  }
+
+  .block__text {
+    font-size: $fs;
+
+    p {
+      color: $col-2;
+    }
+
+    span {
+      color: $col-3;
+    }
+  }
+
+  &.block__big {
+    font: optional;
+  }
+}
+
+.link {
+  color: aquamarine;
+  text-decoration: inherit;
+  font-size: $fs;
+
+  .block & {
+    font-size: 40px;
+  }
+
+  &:hover {
+    //& заменяет родителя блока т.е link 
+
+    color: green;
+  }
+
+  &::before {
+    content: '';
+  }
+
+  &::after {
+    content: '';
+  }
+
+  @extend %tplborder;
+
+  &:active {}
+
+  &:focus {}
+}
+
+.link-2 {
+  @include fonts(10px, flex, wrap);
+  @extend %tplborder;
+}

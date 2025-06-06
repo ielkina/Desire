@@ -1,0 +1,36 @@
+@import url(https://fonts.googleapis.com/css2?family=Pacifico&display=swap);
+
+body {
+  font-family: 'Pacifico', handwriting;
+}
+@import url(https://fonts.googleapis.com/css2?family=Pacifico&display=swap);
+
+body {
+  font-family: 'Pacifico', handwriting;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: blue;
+  font-size: 41px;
+  font-family: Arial;
+  line-height: 1.5;
+  background-color: url("@img/zsu.jpg");
+}
+
+
+
+@media (max-width: 700px) {
+  body {
+    color: aqua;
+    background-color: blueviolet;
+  }
+}
+
+@import url("path/font.css");
+@import url("path/item.title.css");
+@import url("path/news.css");
+@import url("path/title.css");

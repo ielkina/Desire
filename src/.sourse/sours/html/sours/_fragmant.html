@@ -1,0 +1,458 @@
+.block /* Блок */
+.block__element /* Элемент */
+.block--modifier /* Модификатор для Блока*/
+.block__element--modifier /* Модификатор для Элемента */
+
+/блоки
+product-card
+section-products
+header
+footer
+button
+card
+
+/элементы-блоков
+card__title
+card__price
+card__description
+card__button -->
+
+/модификаторы блока/элемента
+card--sale
+cart__price--sale
+
+⩽
+⩾
+≤
+≥
+≦
+≧
+
+<div class="card card--sale">
+  <div class="card__price card__price--sale">12000 РУБ</div>
+</div>
+
+<div class="card">
+  <img class="card__img" src="img/apple-watch.jpg">
+  <h3 class="card__title">Apple Watch</h3>
+  <span class="card__price">12000 РУБ</span>
+  <a class="card__read-more" href="#">Подробнее</a>
+</div>
+
+/блок sale
+<div class="card card--sale">
+  <img class="card__img" src="img/apple-watch.jpg">
+  <h3 class="card__title">Apple Watch</h3>
+  <span class="card__price card-price--sale">12000 РУБ</span>
+  <a class="card__read-more" href="#">Подробнее</a>
+</div>
+
+/вложенность
+<div class="card">
+  ...
+  <div class="card__details">
+    <div class="card__price">12000 РУБ</div>
+    <a class="card__reade-more" href="#">Подробнее</a>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section__header">
+    <div class="header">Заголовок</div>
+  </div>
+  <div class="section__cards">
+    <div class="card">...</div>
+    <div class="card">...</div>
+    <div class="card">...</div>
+  </div>
+  <div class="section__pagination">
+    <div class="pagination">
+      <a class="pagination__item">1</a>
+      <a class="pagination__item">2</a>
+      <a class="pagination__item">3</a>
+    </div>
+  </div>
+</div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="css/style.min.css">
+  <title>@title</title>
+</head>
+
+<picture>
+  <source srcset="
+                ./images/img@m1x.jpg 1x,
+                ./images/img@m2x.jpg 2x
+              " media="(min-width: 480px)" />
+  <source srcset="
+                ./images/img@t1x.jpg 1x,
+                ./images/img@t2x.jpg 2x
+              " media="(min-width: 768px)" />
+  <source srcset="
+                ./images/img@d1x.jpg 1x,
+                ./images/img@d2x.jpg 2x
+              " media="(min-width: 1200px)" />
+  <img class="" src="./images/img@m1x.jpg" alt="" />
+</picture>
+
+<div class="box">
+  <a class="link" href="">
+    <img src="" alt="">
+  </a>
+  <p class="name"></p>
+  <p class="prise"></p>
+</div>
+
+html,
+body {
+height:100%;
+}
+
+#container {
+min-height:100%;
+position:relative;
+}
+
+/*Стили для блока с шапкой*/
+#header {
+background:#222;
+padding:10px;
+}
+
+/*Стили для центральной части*/
+#body {
+padding-bottom:70px; /* Высота блока "footer" */
+}
+
+/*Стили для нижней части*/
+#footer {
+position:absolute;
+bottom:0;
+width:100%;
+height:70px; /* Высота блока "footer" */
+background:#66ccff;
+}
+
+Аудио Тег <audio> определяет звук, например музыку или другие аудиопотоки. В настоящее время поддерживаются три формата
+  файлов: MP3, WAV и OGG.
+  <audio controls>
+    <source src="" type="audio/ogg">
+    <source src="" type="audio/mpeg">
+  </audio>
+
+  Видео Тег <video> определяет видеоклип или видеопоток. Поддерживаемые форматы включают MP4, WebM и Ogg.
+    <video controls>
+      <source src="" type="audio/ogg">
+      <source src="" type="audio/mp4">
+    </video>
+
+    Возможность разрыва слов Если у вас есть длинный блок текста или длинное слово, вы можете использовать тег <wbr>, чтобы указать, где в основной части текста было бы идеально разбить его. Это один из способов гарантировать, что браузер при изменении размера не сломает ваш текст в странном месте.
+
+Время Тег <time> определяет удобочитаемую дату или время. Это можно использовать для кодирования даты и времени в
+      машиночитаемом виде, чтобы пользовательские агенты могли добавлять напоминания о днях рождения или запланированные
+      события в календарь пользователя. Кроме того, это позволяет поисковым системам выдавать более «умные» результаты
+      поиска.
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis voluptatibus <time>11:00</time>fuga
+        recusandae, illum porro provident impedit. Blanditiis obcaecati perspiciatis aliquid reprehenderit maxime quod
+        dolores minus voluptate? Excepturi eveniet repellat autem!
+      </p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex, repudiandae dignissimos iure dolores fugiat
+        impedit quae id ipsa <time datetime="2019-12-25 20:00">11 nov 22 </time>nam veritatis! Asperiores quasi ipsam
+        nihil architecto debitis nostrum distinctio magni repudiandae.</p>
+
+      Тег <blockquote> определяет раздел, цитируемый из другого источника.
+
+        <blockquote cite="https://"></blockquote>
+
+        Тег <output> представляет результат вычисления. Вы можете использовать знак плюс и символ равенства, чтобы
+          указать, что
+          первое и второе входные значения должны быть «выведены» в выходной тег; вы можете обозначить это с помощью
+          атрибута
+          for, содержащего идентификаторы двух элементов для объединения.
+
+          <form action="" oninput="totalWeigh.value=parseInt(catAWeight.value)+parseInt(catBWeight.value)">0
+            <input type="range" id='catWeight' value="50" />100
+            +<input type="number" id="catBWeight" value="50">
+            <output name="totalWeigh" for="catWeight catBWeight"></output>
+          </form>
+
+          Изображение Тег <picture> позволяет указать источники изображения. Вместо того, чтобы иметь изображение,
+            которое вы
+            масштабируете вверх и вниз в зависимости от ширины области просмотра, можно создать несколько изображений,
+            чтобы
+            заполнить область просмотра браузера. Тег изображения содержит два разных тега: один или несколько элементов
+            <source> и один элемент <image>. Исходный элемент имеет следующие атрибуты: srcset (обязательный):
+              определяет
+              URL-адрес изображения для отображения мультимедиа: принимает любой допустимый медиазапрос, который вы
+              можете
+              определить в размерах CSS: определяет одно значение ширины, один медиазапрос со значением ширины, или
+              разделенный
+              запятыми список медиа-запросов с типом значения ширины: определяет тип MIME. Браузер использует значения
+              атрибутов
+              для загрузки наиболее подходящего изображения; он использует первый элемент
+              <source> с соответствующим попаданием и игнорирует последующие исходные элементы. Тег <img> используется
+              для
+              обеспечения обратной совместимости, если браузер не поддерживает элемент <picture> или если ни один из
+                тегов
+                <source> не совпадает.
+
+                <picture>
+                  <source media="(min-width: 650px)" srcset="img/imgx2.jpg">
+                  <source media="(min-width: 465px)" srcset="img/imgx1.jpg">
+                  <img src="img/img.jpg" alt="kit" style="width:auto;">
+                </picture>
+
+                <input aria-autocomplete="list" aria-controls="top-nav-search-menu"
+                  aria-labelledby="top-nav-search-label" autocomplete="off" type="search" class="search-input-field"
+                  name="q" placeholder="   " required="" value="">
+
+
+                <form action="/ru/search" role="search" aria-haspopup="listbox" aria-owns="top-nav-search-menu"
+                  aria-expanded="false" class="search-form search-widget" id="top-nav-search-form">
+                  <label id="top-nav-search-label" for="top-nav-search-input" class="visually-hidden">Search MDN</label>
+                  <input id="top-nav-search-input" aria-autocomplete="list" aria-controls="top-nav-search-menu"
+                    aria-labelledby="top-nav-search-label" autocomplete="off" type="search" class="search-input-field"
+                    name="q" placeholder="" required="" value="">
+                  <button type="button" class="button action has-icon clear-search-button">
+                    <span class="button-wrap">
+                      <span class="icon icon-cancel "></span>
+                      <span class="visually-hidden">Clear search input</span>
+                    </span>
+                  </button>
+                  <button type="submit" class="button action has-icon search-button">
+                    <span class="button-wrap">
+                      <span class="icon icon-search "></span>
+                      <span class="visually-hidden">Search</span>
+                    </span>
+                  </button>
+                  <div id="top-nav-search-menu" role="listbox" aria-labelledby="top-nav-search-label"></div>
+                </form>
+
+
+                <form action="" oninput="totalWeigh.value=parseInt(catAWeight.value)+parseInt(catBWeight.value)">0
+                  <input type="range" id='catWeight' value="50" />100+
+                  <input type="number" id="catBWeight" value="50">
+                  <output name="totalWeigh" for="catWeight catBWeight"></output>
+                </form>
+
+
+                <!-- <form action="/ru/search" role="search" aria-haspopup="listbox" aria-owns="top-nav-search-menu"
+                aria-expanded="false" class="search-form search-widget" id="top-nav-search-form">
+                <label id="top-nav-search-label" for="top-nav-search-input" class="visually-hidden">Search MDN</label>
+                <input id="top-nav-search-input" aria-autocomplete="list" aria-controls="top-nav-search-menu"
+                  aria-labelledby="top-nav-search-label" autocomplete="off" type="search" class="search-input-field" name="q"
+                  placeholder="" required="" value="">
+                <button type="button" class="button action has-icon clear-search-button">
+                  <span class="button-wrap">
+                    <span class="icon icon-cancel "></span>
+                    <span class="visually-hidden">Clear search input</span>
+                  </span>
+                </button>
+                <button type="submit" class="button action has-icon search-button">
+                  <span class="button-wrap">
+                    <span class="icon icon-search "></span>
+                    <span class="visually-hidden">Search</span>
+                  </span>
+                </button>
+                <div id="top-nav-search-menu" role="listbox" aria-labelledby="top-nav-search-label"></div>
+              </form> -->
+
+
+                .block /* Блок */
+                .block__element /* Элемент */
+                .block--modifier /* Модификатор для Блока*/
+                .block__element--modifier /* Модификатор для Элемента */
+
+
+                /блоки
+                product-card
+                section-products
+                header
+                footer
+                button
+                card
+
+                /элементы-блоков
+                card__title
+                card__price
+                card__description
+                card__button -->
+
+                /модификаторы блока/элемента
+                card--sale
+                cart__price--sale
+                <div class="card card--sale">
+                  <div class="card__price card__price--sale">12000 РУБ</div>
+                </div>
+
+                <div class="card">
+                  <img class="card__img" src="img/apple-watch.jpg">
+                  <h3 class="card__title">Apple Watch</h3>
+                  <span class="card__price">12000 РУБ</span>
+                  <a class="card__read-more" href="#">Подробнее</a>
+                </div>
+
+                /блок sale
+                <div class="card card--sale">
+                  <img class="card__img" src="img/apple-watch.jpg">
+                  <h3 class="card__title">Apple Watch</h3>
+                  <span class="card__price card-price--sale">12000 РУБ</span>
+                  <a class="card__read-more" href="#">Подробнее</a>
+                </div>
+
+                /вложенность
+                <div class="card">
+                  ...
+                  <div class="card__details">
+                    <div class="card__price">12000 РУБ</div>
+                    <a class="card__reade-more" href="#">Подробнее</a>
+                  </div>
+                </div>
+
+                <div class="section">
+                  <div class="section__header">
+                    <div class="header">Заголовок</div>
+                  </div>
+                  <div class="section__cards">
+                    <div class="card">...</div>
+                    <div class="card">...</div>
+                    <div class="card">...</div>
+                  </div>
+                  <div class="section__pagination">
+                    <div class="pagination">
+                      <a class="pagination__item">1</a>
+                      <a class="pagination__item">2</a>
+                      <a class="pagination__item">3</a>
+                    </div>
+                  </div>
+                </div>
+
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width,initial-scale=1">
+                  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+                  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+                  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+                  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon.ico">
+                  <link rel="manifest" href="/site.webmanifest">
+                  <link rel="stylesheet" href="css/style.min.css">
+                  <title>@title</title>
+                </head>
+
+
+                <picture>
+                  <source srcset="
+                              ./images/img@m1x.jpg 1x,
+                              ./images/img@m2x.jpg 2x
+                            " media="(min-width: 480px)" />
+                  <source srcset="
+                              ./images/img@t1x.jpg 1x,
+                              ./images/img@t2x.jpg 2x
+                            " media="(min-width: 768px)" />
+                  <source srcset="
+                              ./images/img@d1x.jpg 1x,
+                              ./images/img@d2x.jpg 2x
+                            " media="(min-width: 1200px)" />
+                  <img class="" src="./images/img@m1x.jpg" alt="" />
+                </picture>
+
+                <div class="box">
+                  <a class="link" href="">
+                    <img src="" alt="">
+                  </a>
+                  <p class="name"></p>
+                  <p class="prise"></p>
+                </div>
+
+                html,
+                body {
+                height:100%;
+                }
+
+                #container {
+                min-height:100%;
+                position:relative;
+                }
+
+                /*Стили для блока с шапкой*/
+                #header {
+                background:#222;
+                padding:10px;
+                }
+
+                /*Стили для центральной части*/
+                #body {
+                padding-bottom:70px; /* Высота блока "footer" */
+                }
+
+                /*Стили для нижней части*/
+                #footer {
+                position:absolute;
+                bottom:0;
+                width:100%;
+                height:70px; /* Высота блока "footer" */
+                background:#66ccff;
+                }
+
+
+                <form action="/ru/search" role="search" aria-haspopup="listbox" aria-owns="top-nav-search-menu"
+                  aria-expanded="false" class="search-form search-widget" id="top-nav-search-form">
+                  <label id="top-nav-search-label" for="top-nav-search-input" class="visually-hidden">Search MDN</label>
+                  <input id="top-nav-search-input" aria-autocomplete="list" aria-controls="top-nav-search-menu"
+                    aria-labelledby="top-nav-search-label" autocomplete="off" type="search" class="search-input-field"
+                    name="q" placeholder="" required="" value="">
+                  <button type="button" class="button action has-icon clear-search-button">
+                    <span class="button-wrap">
+                      <span class="icon icon-cancel "></span>
+                      <span class="visually-hidden">Clear search input</span>
+                    </span>
+                  </button>
+                  <button type="submit" class="button action has-icon search-button">
+                    <span class="button-wrap">
+                      <span class="icon icon-search "></span>
+                      <span class="visually-hidden">Search</span>
+                    </span>
+                  </button>
+                  <div id="top-nav-search-menu" role="listbox" aria-labelledby="top-nav-search-label"></div>
+                </form>
+
+                <input aria-autocomplete="list" aria-controls="top-nav-search-menu"
+                  aria-labelledby="top-nav-search-label" autocomplete="off" type="search" class="search-input-field"
+                  name="q" placeholder="   " required="" value="">
+
+                Тег <progress> представляет ход выполнения задачи. Тег <progress> не заменяет тег <meter>, поэтому
+                      компоненты,
+                      указывающие использование дискового пространства или актуальность результатов запроса, должны
+                      использовать тег
+                      <meter>.
+
+                        <progress value="42" max="100"></progress>
+
+  Meter Тег <meter> определяет скалярное измерение в пределах определенного диапазона или дробное значение. Вы также
+    можете обратиться к этому тегу по имени «датчик». Вы можете использовать тег <meter> для отображения статистики
+      использования диска или для указания релевантности результатов поиска. Тег <meter> не следует использовать для
+        обозначения хода выполнения задачи; эти типы компонентов должны быть определены элементом <progress>.
+<meter value="4" min="0" max="10">4 out of 10</meter><br>
+<meter value="0.3">30%</meter>
+
+
+Шаблон Тег <template> содержит содержимое, скрытое от пользователя, но будет использоваться для повторного создания
+  экземпляра HTML-кода.
+
+  <template class="template">
+    <h2>cat</h2>
+    <img src="" alt="">
+  </template>
+
+
+
+  Возможность разрыва слов Если у вас есть длинный блок текста или длинное слово, вы можете использовать тег <wbr>, чтобы указать, где в основной части текста было бы идеально разбить его. Это один из способов гарантировать, что браузер при изменении размера не сломает ваш текст в странном месте.

@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Exo Medium";
+  src: url("Exo Medium.eot");
+  src: url("Exo Medium.eot?#iefix") format("embedded-opentype"), url("Exo Medium.woff2") format("woff2"), url("Exo Medium.woff") format("woff"), url("Exo Medium.ttf") format("truetype"), url("Exo Medium.svg#Exo Medium") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+
+@font-face {
+  font-family: "Exo";
+  src: url("Exo Regular.eot");
+  src: url("Exo Regular.eot?#iefix") format("embedded-opentype"), url("Exo Regular.woff2") format("woff2"), url("Exo Regular.woff") format("woff"), url("Exo Regular.ttf") format("truetype"), url("Exo Regular.svg#Exo Regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+/*# sourceMappingURL=fonts.css.map */

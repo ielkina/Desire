@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery basics</title>
+  </head>
+  <body>
+    <h1 class="h1">jQuery basics</h1>
+    <button id="btn">click me</button>
+    <button id="collapseBtn">click me too</button>
+    <div class="collapse" style="display: none">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur
+      debitis, soluta sed voluptatem nulla non labore, repudiandae libero
+      voluptate quasi rerum officiis reprehenderit earum! Fugit repellendus
+      pariatur vitae ipsum deleniti.
+    </div>
+
+    
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // $(".h1").text("text");
+      // ------------------------------
+      // const heading = $(".h1");
+      // heading.text("h1");
+      // ------------------------------
+      // const heading = $(".h1");
+      // heading.css("text-transform", "uppercase");
+      // ----------------------------------
+      // const heading = $(".h1");
+      // heading.css({
+      //   "text transform": "uppercase",
+      //   color: "blue",
+      // });
+      // ----------------------------------------
+      const heading = $(".h1");
+      heading.css({
+        "text transform": "uppercase",
+        color: "blue",
+      });
+      heading.addClass("active");
+      // heading.removeClass('')
+      $("#btn").on("click", () => {
+        heading.toggleClass("active");
+      });
+      $("button").css("background-color", "red");
+      // const div = ;
+      $("#collapseBtn").on("click", () => {
+        $(".collapse").fadeToggle();
+      });
+    </script>
+  </body>
+</html>

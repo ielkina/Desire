@@ -1,0 +1,827 @@
+[ ]ВАЖНО!!! придерживаться названию файлов разработки как описано нижу так как они прописаны в сборке. При изменении может возникнуть ошибка или нужно поменять в файле gulpfile.js
+
+!Слежение и название файла стилей style.scss
+!Слежение и название файла html index.html
+!Слежение и название файла script main.js
+
+
+
+  .pipe(autoprefixer({
+      grid: true,
+      cascade: true
+    }))
+
+//название репозитория готового и исходных материалов проекта изменить на название проекта
+const project = "project"
+const sources = "src"
+//===================Папки проектов с файлами===================
+const srcPath = `${sources}/`; //папка с исходниками
+const distPath = `${project}/`;
+//================= Пакеты из Gulp ==============================
+const { dest, src, watch, parallel, series } = require("gulp");
+//=====================Пакеты сборки=========================
+const sass = require("gulp-sass")(require("sass"));
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
+const browserSync = require("browser-sync").create();
+const size = require("gulp-size")
+const cssnano = require('gulp-cssnano');//сжимает css файлы убирает ненужные пробелы
+const webpcss = require("gulp-webp-css");
+const csso = require('gulp-csso');//групировка одинаковых селекторов в css файлах// Минифицирует CSS, объединяет классы. Не ломает CSS, в отличие от cssnano, который, к примеру, может неправильно выставлять z-index
+const cleanCss = require('gulp-clean-css');
+// const combineMq = require('gulp-combine-mq');  // Объединяет все @media
+// const selectors = require('gulp-selectors');// Сокращает CSS-селекторы
+const autoprefixer = require('gulp-autoprefixer')// Проставляет вендорные префиксы
+
+
+// const autoprefixer = require('gulp-autoprefixer')
+ // .pipe(autoprefixer('last 3 versions'))
+
+
+ // ---------------------Папки проекта--------------------------------------
+const distPath = "_AutoExpress/"; //название репозитория готового проекта изменить на нужное название
+const srcPath = "src/"; //папка с исходниками
+//----------------------------Пакеты из Gulp---------------------------------
+const { src, dest, watch, parallel, series } = require("gulp");
+// ---------------------------Пакеты сборки-------------------------------
+const sass = require("gulp-sass")(require("sass")); //препроцессор
+const rename = require("gulp-rename"); //изменение название файла
+const replace = require("gulp-replace"); //изменение название файла
+const concat = require("gulp-concat"); //склейка и сжатие файла
+const size = require("gulp-size"); //размер файлов
+const csso = require("gulp-csso"); //минимизация файла стилей
+const removeComments = require("gulp-strip-css-comments"); //удаление комментариев в файле стилей
+const autoprefixer = require("gulp-autoprefixer"); //оптимизация файла стилий под старые версии браузеров
+// const uglify = require("gulp-uglify"); //склейка файлов скриптов
+const uglify = require("gulp-uglify-es").default;
+const htmlmin = require("gulp-htmlmin"); //минимизация файла html
+const webpHTML = require("gulp-webp-html"); //добавление в файл html тега picture
+const webpHtmlNosvg = require("gulp-webp-html-nosvg");
+const groupCssMediaQueries = require("gulp-group-css-media-queries"); //объединять все идентичные селекторы в один
+const imagemin = require("gulp-imagemin"); //сжатие картинок
+const newer = require("gulp-newer"); //сжатие картинок
+const cleanCss = require("gulp-clean-css"); //очистка файла стилей
+const sourcemaps = require("gulp-sourcemaps"); //карта файлов в браузере
+const webp = require("gulp-webp"); //конвертация картинок в webp формат
+const fonter = require("gulp-fonter"); //конвертация шрифта
+const ttf2woff2 = require("gulp-ttf2woff2"); //конвертация шрифта в woff2 формат
+const ttf2woff = require("gulp-ttf2woff"); //конвертация шрифта в woff формат
+const ttf2eot = require("gulp-ttf2eot");
+const cssnano = require("gulp-cssnano"); //сжатие файла стиля
+const pug = require("gulp-pug"); //препроцессор pug
+const nunjucksRender = require("gulp-nunjucks-render"); //препроцессор
+const fileInclude = require("gulp-file-include"); //склейка файлов
+const svgSprite = require("gulp-svg-sprite"); //svg спрайт
+const del = require("del"); //очистка
+const browserSync = require("browser-sync").create(); //слежение за файлами
+//----------------------Обновление изминений в браузере--------------
+function browsersync() {
+  browserSync.init({
+    server: {
+      baseDir: srcPath, //слежение за файлами в папке исходников
+      // baseDir: distPath, //слежение за файлами в папке проекта
+    },
+    notify: false, //удаление всплывающего окна при обновлении
+  });
+}
+//----------------------Стили----------------------------------------
+function styles() {
+  return src("src/scss/*.scss", "src/sass/*.sass")
+    .pipe(sourcemaps.init())
+    .pipe(sass().on("error", sass.logError)) //при работе с sass раскоментировать
+    .pipe(groupCssMediaQueries())
+    .pipe(replace(/@img\//g, "../img/"))
+    .pipe(
+      autoprefixer({
+        cascade: false,
+        overrideBrowserslist: ["last 10 versions"],
+        grid: true,
+      })
+    )
+    .pipe(
+      rename({
+        basename: "main",
+        suffix: ".min",
+      })
+    )
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("src/css"))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      })
+    );
+}
+function cleanStyle() {
+  return src("src/css/*.css")
+    .pipe(removeComments())
+    .pipe(csso())
+    .pipe(
+      cleanCss({
+        level: 2,
+      })
+    )
+    .pipe(
+      size({
+        title: "style",
+      })
+    )
+    .pipe(dest("src/css"));
+}
+//----------------------HTML-----------------------------------------
+function html() {
+  return (
+    src("src/html/*.html")
+      .pipe(
+        fileInclude({
+          prefix: "@",
+          basepath: "@file",
+        })
+      )
+      .pipe(replace(/@img\//g, "img/"))
+      // .pipe(webpHtmlNosvg()) //вставка в код тега picture webp формата
+      .pipe(dest("src"))
+      .pipe(
+        browserSync.reload({
+          stream: true,
+        })
+      )
+  );
+}
+function cleanHtml() {
+  return src("src/*.html")
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true,
+      })
+    )
+    .pipe(
+      rename({
+        // basename: "main",
+        suffix: ".min",
+      })
+    )
+    .pipe(
+      size({
+        title: "html",
+      })
+    )
+    .pipe(dest(srcPath));
+}
+//---------------------Скрипты---------------------------------------
+function scripts() {
+  return src([
+    "node_modules/jquery/dist/jquery.js",
+    "node_modules/mixitup/dist/mixitup.js",
+    "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js",
+    "node_modules/slick-carousel/slick/slick.js",
+    "node_modules/rateyo/src/jquery.rateyo.js",
+    "node_modules/ion-rangeslider/js/ion.rangeSlider.js",
+    "node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js",
+    "node_modules/paroller.js/dist/jquery.paroller.js",
+    "node_modules/jquery-form-styler/dist/jquery.formstyler.js",
+    "node_modules/vshowbox/dist/vshowbox.npm.js",
+    "node_modules/magnific-popup/dist/jquery.magnific-popup.js",
+    // "node_modules/slideshow-popup-modal/dist/bod-modal.js",
+    "src/js/main.js",
+  ])
+    .pipe(sourcemaps.init())
+    .pipe(concat("main.min.js"))
+    .pipe(uglify())
+    .pipe(sourcemaps.write("."))
+    .pipe(dest("src/js"))
+    .pipe(browserSync.stream());
+}
+function scriptBuild() {
+  return src("src/js/*.min.js")
+    .pipe(
+      size({
+        title: "js",
+      })
+    )
+    .pipe(dest(srcPath + "js/"));
+}
+//---------------------Картинки--------------------------------------
+function images() {
+  return src("src/img/**/*.*")
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({
+          interlaced: true,
+        }),
+        imagemin.mozjpeg({
+          quality: 75,
+          progressive: true,
+        }),
+        imagemin.optipng({
+          optimizationLevel: 5,
+        }),
+        imagemin.svgo({
+          plugins: [
+            {
+              removeViewBox: true,
+            },
+            {
+              cleanupIDs: false,
+            },
+          ],
+        }),
+      ])
+    )
+    .pipe(
+      size({
+        title: "images",
+      })
+    )
+    .pipe(dest(srcPath + "img/"));
+}
+
+function imgWebp() {
+  return src("src/img/**/*.jpg")
+    .pipe(newer("src/img/**/*.*"))
+    .pipe(webp())
+    .pipe(dest(srcPath + "img/"));
+}
+
+function svgSprites() {
+  return src("src/img/svg/*.svg") // выбираем в папке с иконками все файлы с расширением svg
+    .pipe(newer("src/img/svg/*.*"))
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: "sprite.svg", // указываем имя файла спрайта и путь
+            // example: true, //добавляет html код спрайта
+          },
+        },
+      })
+    )
+    .pipe(dest("src/img/svg")); // указываем, в какую папку поместить готовый файл спрайта
+}
+//---------------------Шриты------------------------------------------
+function fonts() {
+  return src("src/font/*.*")
+    .pipe(newer("src/font/*.*"))
+    .pipe(
+      fonter({
+        // subset: [66, 67, 68, 69, 70, 71],
+        formats: ["woff", "ttf"], //конверт в формат woff
+        // formats: ["woff", "ttf", "eot"], //конверт в формат woff и ttf
+      })
+    )
+    .pipe(ttf2woff2())
+    .pipe(dest("src/font"));
+}
+//---------------------Сборка готового проекта------------------------
+function build() {
+  return src(
+    [
+      "src/*.*",//html
+      "src/css/*.min.css",
+      "src/js/*.min.js",
+      "src/files/*.*",
+      "src/img/**/*.*",
+      "src/font/*.*",
+    ],
+    {
+      base: srcPath,
+    }
+  )
+    .pipe(size())
+    .pipe(dest(distPath));
+}
+//---------------------Очистка готового репозитория от старых файлов----
+function cleanDist() {
+  return del(distPath);
+}
+//---------------------Слежение за изминением в файлах------------------
+function watching() {
+  watch(["src/html/**/*.*"], html);
+  watch(["src/scss/**/*.scss"], styles);
+  watch(["src/js/**/*.js", "!src/js/main.min.js"], scripts);
+  watch(["src/img/svg/*.svg"], svgSprites);
+  watch(["src/*.html"]).on("change", browserSync.reload);
+}
+//---------------------Основные команды сборки--------------------------
+exports.browsersync = browsersync;
+exports.cleanStyle = cleanStyle;
+exports.cleanHtml = cleanHtml;
+exports.scriptBuild = scriptBuild;
+exports.images = images;
+exports.svgSprites = svgSprites;
+exports.imgWebp = imgWebp;
+exports.fonts = fonts;
+exports.html = html;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.watching = watching;
+exports.cleanDist = cleanDist;
+//---------------------------Дефолтные команды сборки-----------------
+exports.build = series(
+  cleanDist,
+  images,
+  cleanStyle,
+  cleanHtml,
+  scriptBuild,
+  build
+); //gulp build
+
+exports.default = parallel(
+  svgSprites,
+  imgWebp,
+  fonts,
+  html,
+  styles,
+  scripts,
+  browsersync,
+  watching
+); //gulp
+
+
+//===================Папки с файлами проекта===================
+//название репозитория готового и исходных материалов проекта изменить на название проекта
+const srcPath = "src/"; //папка с готовым проэктом
+const distPath = "MyProject"; //папка с исходниками
+//================= Пакеты из Gulp ==============================
+const { dest, src, watch, parallel, series } = require("gulp");
+//=====================Пакеты сборки=========================
+const del = require("del");
+const browserSync = require("browser-sync").create();
+const sass = require("gulp-sass")(require("sass"));
+const concat = require("gulp-concat");
+const size = require("gulp-size");
+const cssnano = require("gulp-cssnano");
+const csso = require("gulp-csso");
+const webpcss = require("gulp-webp-css");
+const cleanCss = require("gulp-clean-css");
+const htmlmin = require("gulp-htmlmin");
+const fileinclude = require("gulp-file-include");
+const webphtml = require("gulp-webp-html");
+const htmlPrettify = require("gulp-html-prettify");
+const removeHtmlComments = require("gulp-remove-html-comments");
+const svgSprite = require("gulp-svg-sprite"); //svg спрайт
+const svgstore = require("gulp-svgstore");
+const newer = require("gulp-newer");
+const imagemin = require("gulp-imagemin");
+const rename = require("gulp-rename");
+const webp = require("gulp-webp");
+const uglify = require("gulp-uglify");
+const replace = require("gulp-replace"); //изменение название файла
+const webpHTML = require("gulp-webp-html"); //добавление в файл html тега picture
+
+//============Браузер===================
+function browsersync() {
+  browserSync.init({
+    server: {
+      baseDir: "src/",
+    },
+    notify: false,
+  });
+}
+//=================Style=====================
+function style() {
+  return src(srcPath + "scss/*.{scss,sass,css}")
+    .pipe(size({ title: "style" }))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(csso())
+    .pipe(cleanCss({ compatibility: "ie8", format: "beautify" }))
+    .pipe(dest(srcPath + "css"))
+    .pipe(concat("style.min.css"))
+    .pipe(sass().on("error", sass.logError))
+    .pipe(
+      webpcss({
+        noWebpClass: ".no-webp",
+        webpClass: ".webp",
+      })
+    )
+    .pipe(cleanCss({ compatibility: "ie8" }))
+    .pipe(webpcss())
+    .pipe(cssnano())
+    .pipe(size({ title: "style.min" }))
+    .pipe(dest(srcPath + "css"))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      })
+    );
+}
+//================HTML=======================
+function html() {
+  return src(srcPath + "html/**/*.html")
+    .pipe(
+      fileinclude({
+        prefix: "@",
+        basepath: "@file",
+      })
+    )
+    .pipe(replace(/@img\//g, "img/"))
+    .pipe(webpHTML())
+    .pipe(removeHtmlComments())
+    .pipe(htmlPrettify({ indent_char: "", indent_size: 2 }))
+    .pipe(dest(srcPath))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      })
+    );
+}
+function htmlMin() {
+  return src(srcPath + "index.html")
+    .pipe(size({ title: "html" }))
+    .pipe(concat("index.min.html"))
+    .pipe(htmlmin({ collapseWhitespace: true }))
+    .pipe(size({ title: "html.min" }))
+    .pipe(dest(srcPath));
+}
+//================Images===================
+function images() {
+  return src("src/img/**/*.*")
+    .pipe(newer("src/img/**/*.*"))
+    .pipe(
+      size({
+        title: "jpg, png, svg до",
+      })
+    )
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({
+          interlaced: true,
+        }),
+        imagemin.mozjpeg({
+          quality: 75,
+          progressive: true,
+        }),
+        imagemin.optipng({
+          optimizationLevel: 5,
+        }),
+        imagemin.svgo({
+          plugins: [
+            {
+              removeViewBox: true,
+            },
+            {
+              cleanupIDs: false,
+            },
+          ],
+        }),
+      ])
+    )
+    .pipe(
+      size({
+        title: "jpg, png, svg",
+      })
+    )
+    .pipe(dest(srcPath + "img/"));
+}
+
+function svgSprites() {
+  return src("src/img/svg/*.svg") // выбираем в папке с иконками все файлы с расширением svg
+    .pipe(newer("src/img/svg/*.*"))
+    .pipe(svgstore({ inlineSvg: true }))
+    .pipe(rename("sprite.svg"))
+    .pipe(dest("src/img/svg")); // указываем, в какую папку поместить готовый файл спрайта
+}
+//================Scripts==================
+//================Font=====================
+
+//===========Слежение за файлами========
+function watching() {
+  watch([srcPath + "*.html"], html);
+  watch([srcPath + "scss/**/*.{scss,sass,css}"], style);
+  // watch(
+  //   [srcPath + "img/**/*.{jpeg,jfif,jpeg-2000,png,gif,pdf,webp,tiff,bmp,psd}"],
+  //   images
+  // );
+  // watch([srcPath + "img/svg/*.svg"], svgSprites);
+  watch([srcPath + "*.html"]).on("change", browserSync.reload);
+}
+//Сборка готового проекта
+function build() {
+  return src(
+    [
+      // "src/*.html",
+      // "src/css/*.min.css",
+      // "src/css/*.css",
+      // "src/js/*.min.js",
+      // "src/files/*.*",
+      // "src/img/**/*.*",
+      // "src/font/*.woff",
+      // "src/font/*.woff2",
+    ],
+    {
+      base: srcPath,
+    }
+  ).pipe(dest(distPath));
+}
+//Очита папки с готовым проектом
+function cleanDist() {
+  return del(distPath);
+}
+//Экспорт задач сборки
+exports.style = style;
+exports.html = html;
+exports.images = images;
+exports.htmlMin = htmlMin;
+exports.svgSprites = svgSprites;
+exports.watching = watching;
+exports.browsersync = browsersync;
+//паралельные выполнение задач сборки
+exports.default = parallel(
+  svgSprites,
+  images,
+  html,
+  style,
+  browsersync,
+  watching
+); //команда консоли gulp
+exports.build = series(cleanDist, htmlMin, build); //команда консоли gulp build
+
+const srcPath = "src/"; //папка с исходниками
+const distPath = "SimpleFood/"; //название репозитория готового проекта изменить на нужное название
+
+const { src, dest, watch, parallel, series } = require("gulp");
+// ----------------------------------------------------------
+const scss = require("gulp-sass")(require("sass"));
+const sass = require("gulp-sass")(require("sass"));
+const rename = require("gulp-rename"); //
+const concat = require("gulp-concat");
+const size = require("gulp-size");
+const csso = require("gulp-csso");
+const removeComments = require("gulp-strip-css-comments"); //удаление комментариев в файле стилей
+const autoprefixer = require("gulp-autoprefixer");
+const uglify = require("gulp-uglify");
+const htmlmin = require("gulp-htmlmin");
+const groupCssMediaQueries = require("gulp-group-css-media-queries"); //объединять все идентичные селекторы в один
+const imagemin = require("gulp-imagemin"); //сжатие картинок
+const newer = require("gulp-newer"); //сжатие картинок
+const cleanCss = require("gulp-clean-css");
+const sourcemaps = require("gulp-sourcemaps");
+const webp = require("gulp-webp"); //конвертация картинок в webp формат
+const fonter = require("gulp-fonter"); //конвертация шрифта
+const ttf2woff2 = require("gulp-ttf2woff2"); //конвертация шрифта в woff2 формат
+const ttf2woff = require("gulp-ttf2woff"); //конвертация шрифта в woff формат
+const ttf2eot = require("gulp-ttf2eot");
+const cssnano = require("gulp-cssnano"); //сжатие файла стиля
+const del = require("del");
+const browserSync = require("browser-sync").create(); //слежение за файлами
+const pug = require("gulp-pug");
+const nunjucksRender = require("gulp-nunjucks-render");
+const fileInclude = require("gulp-file-include");
+const svgSprite = require("gulp-svg-sprite");
+// -----------------------------------------------------------
+
+
+function browsersync() {
+  browserSync.init({
+    server: {
+      baseDir: srcPath, //слежение за файлами в папке исходников
+      // baseDir: distPath, //слежение за файлами в папке проекта
+    },
+    notify: false, //удаление всплывающего окна при обновлении
+  });
+}
+
+function cleanStyle() {
+  return src("src/css/*.css").pipe(removeComments()).pipe(dest("src/css"));
+}
+
+function images() {
+  return src("src/img/**/*.*")
+    .pipe(newer("src/img/**/*.*"))
+    .pipe(
+      size({
+        title: "jpg, png, svg до",
+      })
+    )
+    .pipe(
+      imagemin([
+        imagemin.gifsicle({
+          interlaced: true,
+        }),
+        imagemin.mozjpeg({
+          quality: 75,
+          progressive: true,
+        }),
+        imagemin.optipng({
+          optimizationLevel: 5,
+        }),
+        imagemin.svgo({
+          plugins: [
+            {
+              removeViewBox: true,
+            },
+            {
+              cleanupIDs: false,
+            },
+          ],
+        }),
+      ])
+    )
+    .pipe(
+      size({
+        title: "jpg, png, svg",
+      })
+    )
+    .pipe(dest(distPath + "img/"))
+    .pipe(
+      size({
+        title: "webp до",
+      })
+    )
+    .pipe(webp())
+    .pipe(
+      size({
+        title: "webp",
+      })
+    )
+    .pipe(dest(distPath + "img/"));
+}
+
+function fonts() {
+  return src("src/fonts/*.*")
+    .pipe(newer("src/fonts/*.*"))
+    .pipe(
+      fonter({
+        // subset: [66, 67, 68, 69, 70, 71],
+        formats: ["woff", "ttf"], //конверт в формат woff
+        // formats: ["woff", "ttf", "eot"], //конверт в формат woff и ttf
+      })
+    )
+    .pipe(ttf2woff2())
+    .pipe(dest("src/fonts"));
+}
+
+function svgSprites() {
+  return src("src/img/svg/*.svg") // выбираем в папке с иконками все файлы с расширением svg
+    .pipe(
+      svgSprite({
+        mode: {
+          stack: {
+            sprite: "./sprite.svg", // указываем имя файла спрайта и путь
+          },
+        },
+      })
+    )
+    .pipe(dest("src/img/svg")); // указываем, в какую папку поместить готовый файл спрайта
+}
+
+function scripts() {
+  return src([
+    // "node_modules/jquery/dist/jquery.js",
+    // "node_modules/mixitup/dist/mixitup.js",
+    // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js",
+    // "node_modules/slick-carousel/slick/slick.js",
+    // "node_modules/rateyo/src/jquery.rateyo.js",
+    // "node_modules/ion-rangeslider/js/ion.rangeSlider.js",
+    // "node_modules/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js",
+    // "node_modules/paroller.js/dist/jquery.paroller.js",
+    // "node_modules/jquery-form-styler/dist/jquery.formstyler.js",
+    // "node_modules/vshowbox/dist/vshowbox.npm.js",
+    // "node_modules/slideshow-popup-modal/dist/bod-modal.js",
+    "src/js/main.js",
+  ])
+    .pipe(sourcemaps.init())
+    .pipe(
+      size({
+        title: "js до",
+      })
+    )
+    .pipe(concat("main.min.js"))
+    .pipe(uglify())
+    .pipe(sourcemaps.write("."))
+    .pipe(
+      size({
+        title: "js",
+      })
+    )
+    .pipe(dest("src/js"))
+    .pipe(browserSync.stream());
+}
+
+function styles() {
+  return src("src/scss/*.scss", "src/sass/*.sass")
+    .pipe(sourcemaps.init())
+    .pipe(
+      size({
+        title: "style до",
+      })
+    )
+    .pipe(sass().on("error", sass.logError)) //при работе с sass раскоментировать
+    .pipe(groupCssMediaQueries())
+    .pipe(csso())
+    .pipe(
+      autoprefixer({
+        cascade: false,
+        overrideBrowserslist: ["last 10 versions"],
+        grid: true,
+      })
+    )
+    .pipe(
+      cleanCss({
+        level: 2,
+      })
+    )
+    .pipe(
+      rename({
+        basename: "main",
+        suffix: ".min",
+      })
+    )
+    .pipe(sourcemaps.write("."))
+    .pipe(
+      size({
+        title: "style",
+      })
+    )
+    .pipe(dest("src/css"))
+    .pipe(
+      browserSync.reload({
+        stream: true,
+      })
+    );
+}
+
+function html() {
+  return (
+    src(["src/html/*.html", "src/pages/*.html", "src/*.njk", "src/*.pug"])
+      .pipe(
+        size({
+          title: "html, pug до",
+        })
+      )
+      // .pipe(gulpPug()) //при работе с Pug раскоментировать
+      .pipe(
+        htmlmin({
+          collapseWhitespace: true,
+        })
+      ) //при работе с Html раскоментировать
+      .pipe(
+        fileInclude({
+          prefix: "@",
+          basepath: "@file",
+        })
+      )
+      .pipe(
+        size({
+          title: "html, pug",
+        })
+      )
+      .pipe(dest("src"))
+      .pipe(
+        browserSync.reload({
+          stream: true,
+        })
+      )
+  );
+}
+
+function build() {
+  return src(
+    [
+      "src/*.html",
+      "src/css/*.min.css",
+      "src/js/*.min.js",
+      "src/files/*.*",
+      "src/img/**/*.*",
+      "src/fonts/*.woff",
+      "src/fonts/*.woff2",
+    ],
+    {
+      base: srcPath,
+    }
+  ).pipe(dest(distPath));
+}
+
+function cleanDist() {
+  return del(distPath);
+}
+
+function watching() {
+  watch(["src/img/svg/*.svg"], svgSprites);
+  watch(["src/html/**/*.*"], html);
+  watch(["src/scss/**/*.scss"], styles);
+  watch(["src/js/**/*.js", "!src/js/main.min.js"], scripts);
+  watch(["src/*.html"]).on("change", browserSync.reload);
+}
+
+exports.browsersync = browsersync;
+exports.cleanStyle = cleanStyle;
+exports.images = images;
+exports.fonts = fonts;
+exports.svgSprites = svgSprites;
+exports.html = html;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.watching = watching;
+exports.cleanDist = cleanDist;
+
+exports.build = series(cleanDist, cleanStyle, images, build); //gulp build
+exports.default = parallel(
+  svgSprites,
+  fonts,
+  html,
+  styles,
+  scripts,
+  browsersync,
+  watching
+); //gulp

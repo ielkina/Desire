@@ -1,0 +1,48 @@
+html {
+  box-sizing: border-box
+}
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+ol[class],
+ul[class] {
+  list-style: none
+}
+
+a {
+  text-decoration: none;
+  // color: inherit
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block
+}
+
+button,
+input,
+select,
+textarea {
+  // font: inherit;
+  color: inherit;
+  border: 0
+}
+
+input,
+textarea {
+  border: none;
+  border-radius: 0;
+  outline: none; // если нужно убрать обводку при фокусе (не рекомендуется для доступности)
+}

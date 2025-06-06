@@ -1,0 +1,160 @@
+.header {
+  // height: 144px;
+}
+
+.navbar {
+  height: 144px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 35px;
+    }
+  }
+
+  &__link {
+    @extend %rubik-500;
+    font-size: 15px;
+    line-height: 0.8;
+
+    &::after {
+      height: 2px;
+      background-color: $text;
+    }
+  }
+}
+
+.user-box {
+  display: flex;
+
+  &__search,
+  &__burger {
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    padding: 0;
+    display: inherit;
+    align-items: center;
+    justify-content: center;
+    transition:
+      box-shadow 0.3s,
+      background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &__search {
+    background-color: $search-bg;
+    margin-right: 21px;
+
+    &:hover {
+      box-shadow: 0px 0px 0px 2px $search-bg;
+    }
+  }
+
+  &__burger {
+    background-color: $burger-bg;
+
+    &:hover {
+      box-shadow: 0px 0px 0px 2px $burger-bg;
+
+      & .user-box__icon-burger {
+        fill: $burger-bg;
+      }
+    }
+  }
+
+  &__icon,
+  &__icon-search {
+    fill: $icon;
+  }
+
+  &__icon-burger {
+    fill: $bg;
+    transition: fill 0.3s ease-in-out;
+  }
+
+  &__burger {}
+
+  &__icon-burger {}
+
+  &__icon {}
+
+  &__list {
+    display: inherit;
+    width: 178px;
+    border-radius: 50px;
+    background-color: $user-bg;
+    margin-right: 18px;
+    transition:
+      box-shadow 0.3s,
+      background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: transparent;
+      box-shadow: 0px 0px 0px 2px $user-bg;
+
+      & .user-box__item {
+        &:nth-child(1) {
+          &::after {
+            background-color: $user-bg;
+          }
+        }
+      }
+
+      & .user-box__num {
+        background-color: $bg;
+        box-shadow: 0px 0px 0px 2px $user-bg;
+      }
+    }
+  }
+
+  &__item {
+    display: inherit;
+    align-items: center;
+    justify-content: space-around;
+    width: 89px;
+
+    &:nth-child(1) {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        content: '';
+        height: 32px;
+        width: 2px;
+        background-color: $bg;
+        right: 0;
+      }
+    }
+  }
+
+  &__link {
+    position: relative;
+  }
+
+  &__num {
+    @extend %dms-400;
+    font-size: 10px;
+    line-height: 2.7;
+    color: $icon;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: $bg;
+    top: -9px;
+    right: -9px;
+  }
+}

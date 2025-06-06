@@ -1,0 +1,135 @@
+//ИМЯ ШРИФТА
+$rubik: 'Rubik';
+$opensans: 'OpenSans';
+$dmsans: 'DMSans';
+$poppins: 'Poppins';
+$roboto: 'Roboto';
+$quicksand: 'Quicksand';
+$myriadpro: 'MyriadPro';
+$montserrat: 'Montserrat';
+//группировка переменных
+$name: (
+  rubik: 'Rubik',
+  opensans: 'OpenSans',
+  dmsans: 'DMSans',
+  poppins: 'Poppins',
+  roboto: 'Roboto',
+  quicksand: 'Quicksand',
+  myriadpro: 'MyriadPro',
+  montserrat: 'Montserrat',
+);
+//синтаксис   font-family: map-get($name, opensans);
+
+//СТИЛЬ ШРИФТА
+$thin: 'Thin';
+$thin-italic: 'Thin-Italic';
+$extraLight: 'ExtraLight';
+$extraLightItalic: 'ExtraLightItalic';
+$light: 'Light';
+$light-italic: 'Light-Italic';
+$regular: 'Regular';
+$regularItalic: 'RegularItalic';
+$medium: 'Medium';
+$mediumItalic: 'MediumItalic';
+$semiBold: 'SemiBold';
+$semiBoldItalic: 'SemiBoldItalic';
+$bold: 'Bold';
+$boldItalic: 'BoldItalic';
+$extraBold: 'ExtraBold';
+$extraBold-italic: 'ExtraBold-Italic';
+$black: 'Black';
+$black-italic: 'Black-Italic';
+$extraBlack-italic: 'ExtraBlack-Italic';
+
+$style: (
+  thin: 'Thin',
+  thin-italic: 'Thin-Italic',
+  extraLight: 'ExtraLight',
+  extraLightItalic: 'ExtraLightItalic',
+  light: 'Light',
+  light-italic: 'Light-Italic',
+  regular: 'Regular',
+  regularItalic: 'RegularItalic',
+  medium: 'Medium',
+  mediumItalic: 'MediumItalic',
+  semiBold: 'SemiBold',
+  semiBoldItalic: 'SemiBoldItalic',
+  bold: 'Bold',
+  boldItalic: 'BoldItalic',
+  extraBold: 'ExtraBold',
+  extraBold-italic: 'ExtraBold-Italic',
+  black: 'Black',
+  black-italic: 'Black-Italic',
+  extraBlack-italic: 'ExtraBlack-Italic',
+);
+//синтаксис   font-family: map-get($style, bold);
+
+//ТИП ШРИФТА
+$sans-serif: sans-serif;
+$serif: unquote('serif');
+$monospace: monospace;
+
+//БЕЗОПАСНЫЕ ШРИФТЫ
+$save-fonts: 'Helvetica', 'Arial';
+$helvetica: 'Helvetica';
+$arial: 'Arial';
+$verdata: 'Verdana';
+
+//НАСТРОЙКА ШРИФТОВ ПРОЕКТА
+//название
+$font-glob: $montserrat;
+$font-h1: map-get($name, roboto);
+$font-h2: map-get($name, quicksand);
+$font-h3: map-get($name, dmsans);
+
+//размеры шрифтов
+$p-size: 18;
+$p-min-size: 14;
+
+$h1: 72;
+$h1-min: 45;
+$h2: 32;
+$h2-min: 20;
+$h3: 24;
+$h3-min: 14;
+
+//цвет шрифта
+$text-color: #000;
+$title-text-color: #000;
+$subtitle-text-color: #000;
+
+//Миксин формирования фрагмента подключения шрифтов
+@mixin font($font, $font-url, $weight) {
+  @font-face {
+    font-family: '#{$font}';
+    src: url('/font/#{$font-url}.woff2') format('woff2'),
+    url('/font/#{$font-url}.woff') format('woff');
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+    // font-stretch: normal;
+    // unicode-range: U+0020-2212;
+  }
+}
+
+/*Подключения шрифтов*/
+// @include font($font-glob, #{$font-glob}-#{$thin}, 100);
+// @include font($font-glob, #{$font-glob}-#{$thin-italic}, 100);
+// @include font($font-glob, #{$font-glob}-#{$extraLight}, 200);
+// @include font($font-glob, #{$font-glob}-#{$extraLightItalic}, 200);
+// @include font($font-glob, #{$font-glob}-#{$light}, 300);
+// @include font($font-glob, #{$font-glob}-#{$light-italic}, 300);
+@include font($font-glob, #{$font-glob}-#{$regular}, 400);
+@include font($font-glob, #{$font-glob}-#{$regularItalic}, 400);
+@include font($font-h1, #{$font-h1}-#{$medium}, 500);
+@include font(map-get($name, rubik), #{$font-h1}-#{$mediumItalic}, 500);
+// @include font($font-glob, #{$font-glob}-#{$semiBold}, 600);
+// @include font($font-glob, #{$font-glob}-#{$semiBoldItalic}, 600);
+// @include font($font-glob, #{$font-glob}-#{$bold}, 700);
+// @include font($font-glob, #{$font-glob}-#{$boldItalic}, 700);
+// @include font($font-glob, #{$font-glob}-#{$extraBold}, 800);
+// @include font($font-glob, #{$font-glob}-#{$extraBold-italic}, 800);
+// @include font($font-glob, #{$font-glob}-#{$black}, 900);
+// @include font($font-glob, #{$font-glob}-#{$black-italic}, 900);
+// @include font($font-glob, #{$font-glob}-#{$extraBlack-italic}, 950);
+// @include font($opensans, #{$opensans}-#{$extraBlack-italic}, 950);

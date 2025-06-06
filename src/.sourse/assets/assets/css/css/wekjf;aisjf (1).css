@@ -1,0 +1,11 @@
+.title {
+  text-transform: uppercase;
+  color: rgb(219, 216, 10);
+}
+@media (max-width: 700px) {
+  .title {
+    text-align: center;
+    color: aqua;
+    background-color: blueviolet;
+  }
+}

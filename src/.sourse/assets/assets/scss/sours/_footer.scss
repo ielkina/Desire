@@ -1,0 +1,33 @@
+.footer {
+  background-color: $violet;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    padding-right: 15px;
+    @include md() {
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  }
+  &__logo {
+    @include md() {
+      margin-bottom: 15px;
+    }
+  }
+  &__social {
+    margin: 0 30px;
+    @include md() {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__copy {
+    color: #fff;
+    @include xl() {
+      padding-right: 15px;
+    }
+  }
+}

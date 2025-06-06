@@ -1,0 +1,17 @@
+/*base*/
+.wrapper {
+}
+.header {
+}
+.logo {
+}
+.logo__img {
+}
+.container {
+  width: 100%;
+  max-width: 1620px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

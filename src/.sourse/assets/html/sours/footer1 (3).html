@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>DOM Events</title>
+  </head>
+  <body>
+    <h1 id="h1">События в браузере</h1>
+    <hr />
+    <h2>Типы событий</h2>
+    <ul onclick="checkTarget(event)">
+      <li><b>clik</b> - нажатие левой клавиши мыши</li>
+      <li>
+        <b>mouseover / mouseout</b> - мыш наводиться на (покидает) элемент
+      </li>
+      <li><b>keydown / keyup</b> - нажатие / отжатие клавиши клавиатуры</li>
+      <li><b>focus</b> - установка фокуса на элемент, напиример, input</li>
+      <li><b>submit</b> - событие отправки формы</li>
+      <li>.....</li>
+    </ul>
+    <h2 onclick="alertMsg()">Обработка событий</h2>
+    <ul>
+      <li>
+        Через атрибут тега - onevent (например, onclick, onmouseover, onsubmit)
+      </li>
+      <li id="testl">Вызов колбэка</li>
+      <li>Выборка ноды и добавление к ней событий onevent (по ссылке)</li>
+      <li>Использование "листнеров" addEventListener, removeEventListener</li>
+    </ul>
+    <h2>Доступ к содержимому ноды</h2>
+    <ul>
+      <li>Через контекст this</li>
+      <li>Через обьект события</li>
+    </ul>
+    <script>
+      function checkTarget(event) {
+        event.preventDefault();
+        console.log(event);
+        console.log(event.target);
+        console.log(event.currentTarget);
+        // console.log(this.innerHTML);
+      }
+      // var heading = document.getElementById("h1");
+      // heading.onclick = function () {
+      //   console.log(this);
+      //   this.classList.toggle("active");
+      // };
+      // const li = document.getElementById("testl");
+      // li.removeEventListener("click", alertMsg);
+      // li.addEventListener("click", function () {
+      //   console.log("Привет из листнера");
+      // });
+      // // li.onclick = alertMsg;
+      // function alertMsg() {
+      //   alert("Привет из функции");
+      // }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+.bg-back {
+  width: 24px;
+  height: 24px;
+  background: url("css_sprites.png") -4019px -1442px;
+}
+.bg-back2x {
+  width: 48px;
+  height: 48px;
+  background: url("css_sprites.png") -3835px -1442px;
+}
+.bg-icon_cart__1_ {
+  width: 38px;
+  height: 34px;
+  background: url("css_sprites.png") -3903px -1442px;
+}

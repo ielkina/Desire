@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper@7/swiper-bundle.min.css"
+    />
+    <style>
+      .swiper {
+        width: 600px;
+        height: 300px;
+		  max-width: 100%;
+      }
+    </style>
+    <title>Адаптивный слайдер Swiper</title>
+  </head>
+  <body>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" style="background-color: aqua">Slide 1</div>
+        <div class="swiper-slide" style="background-color: rgb(27, 36, 36)">
+          Slide 2
+        </div>
+        <div class="swiper-slide" style="background-color: rgb(4, 71, 71)">
+          Slide 3
+        </div>
+        <div class="swiper-slide" style="background-color: rgb(115, 136, 136)">
+          Slide 4
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-scrollbar"></div>
+    </div>
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        direction: "horizontal",
+        loop: true,
+        speed: 400,
+        //   spaceBetween: 100,
+        effect: "cube",
+        breakpoints: {
+          // when window width is >= 320px
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+			 768: {
+				 slidesPerView: 2,
+				 spaceBetween:40,
+			 },
+			 1024: {
+				 slidesPerView: 3,
+				 spaceBetween: 70,
+			 }
+        },
+
+        pagination: {
+          el: ".swiper-pagination",
+        },
+
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+
+        scrollbar: {
+          el: ".swiper-scrollbar",
+        },
+      });
+    </script>
+  </body>
+</html>

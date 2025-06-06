@@ -1,0 +1,21 @@
+$breakpoints: ("phone-2": 375px,
+  "phone-1": 560px,
+  "tablet-6": 733px,
+  "tablet-5": 768px,
+  "tablet-4": 795px,
+  "tablet-3": 945px,
+  "tablet-2": 992px,
+  "tablet-1":1128px,
+  "desktop": 1230px);
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 1128px) {}
+
+@media (max-width: 945px) {}
+
+@media (max-width: 795px) {}
+
+@media (max-width: 733px) {}
+
+@media (max-width: 375px) {}

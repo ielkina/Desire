@@ -1,0 +1,270 @@
+::-webkit-scrollbar {
+  // width: 0;
+}
+
+*::-webkit-scrollbar {
+  // width: 2px;
+  // height: 2px;
+}
+
+*::-webkit-scrollbar-track {
+  // background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  // background-color: #fff;
+  // border-radius: 5px;
+}
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+
+//my-reset
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a,
+input,
+textarea,
+button {
+  outline: 0;
+  border: 0;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+//
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+nav ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  display: inline-block;
+}
+
+/* change colours to suit your needs */
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* change colours to suit your needs */
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title],
+dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* change border colour to suit your needs */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input,
+select {
+  vertical-align: middle;
+}
+
+
+
+//убирем таблицу стилей агента пользователя в chrome
+input,
+textarea,
+select {
+  // -webkit-appearance: none;
+  // -moz-appearance: none;
+}
+
+input:-internal-autofill-selected {
+  // appearance: menulist-button;
+  // background-image: none !important;
+  // background-color: inherit !important;
+  // color: fieldtext !important;
+}
+
+input[type="text" i] {
+  // padding: 1px 2px;
+}
+
+input {
+  // writing-mode: horizontal-tb !important;
+  // text-rendering: auto;
+  // color: fieldtext;
+  // text-indent: 0px;
+  // text-shadow: none;
+  // display: inline-block;
+  // text-align: start;
+  // appearance: auto;
+  // -webkit-rtl-ordering: logical;
+  // cursor: text;
+  // background-color: inherit !important;
+  // margin: 0em;
+  // padding: 1px 2px;
+  // border-width: 2px;
+  // border-style: inset;
+  // border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  // border-image: initial;
+}

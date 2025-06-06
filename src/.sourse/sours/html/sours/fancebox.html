@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/fancebox.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"
+    />
+    <title>FancyBox</title>
+  </head>
+
+  <body>
+    <a
+      data-fancybox="gallery"
+      href="https://placeimg.com/640/480/nature?t=1635518622827"
+    >
+      <img src="https://placeimg.com/200/200/nature?t=1635518622827" />
+    </a>
+    <a
+      data-fancybox="gallery"
+      href="https://placeimg.com/640/480/nature?t=1635518522827"
+    >
+      <img src="https://placeimg.com/200/200/nature?t=1635514622827"
+    /></a>
+    <a
+      data-fancybox="gallery"
+      href="https://placeimg.com/640/480/nature?t=1635516622827"
+    >
+      <img src="https://placeimg.com/200/200/nature?t=1635578622827"
+    /></a>
+    <a
+      data-fancybox="gallery"
+      href="https://placeimg.com/640/480/nature?t=1635516622827"
+    >
+      <img src="https://placeimg.com/200/200/nature?t=1635514622827"
+    /></a>
+    <br />
+    <br />
+    <a data-fancybox href="https://youtu.be/jppr44AS09k">
+      Open YouTube video Ссылка на видео
+    </a>
+    <br />
+    <br />
+    <iframe
+      width="360"
+      height="215"
+      src="https://www.youtube.com/embed/jppr44AS09k"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+
+    <br />
+    <br />
+    <a
+      data-fancybox
+      data-type="iframe"
+      data-src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6385.185404499165!2d30.805822799999994!3d36.85222950000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2str!4v1635521444285!5m2!1sru!2str"
+      href="javascript:;"
+    >
+
+
+            
+      Карта
+    </a>
+    <br />
+    <br />
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6385.185404499165!2d30.805822799999994!3d36.85222950000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2str!4v1635521444285!5m2!1sru!2str"
+      width="600"
+      height="450"
+      style="border: 0"
+      allowfullscreen=""
+      loading="lazy"
+    ></iframe>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <!-- последовательность подключение библиотек важна -->
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <!--сначала подключаеться библиотека jquery а затем ,fancybox, та которая ее использует -->
+    <script>
+      const config = {
+        loop: true,
+        infobar: false,
+        toolbar: false,
+      };
+      $('[data-fancybox="gallery"]').fancybox(config);
+    </script>
+  </body>
+</html>

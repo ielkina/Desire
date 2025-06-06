@@ -1,0 +1,26 @@
+@use 'var' as *;
+.title {
+  color: $title-color;
+  font-family: $title, sans-serif;
+  font-weight: 700;
+  font-size: 110px;
+  line-height: 134px;
+  letter-spacing: 0px;
+}
+.sub-title {
+  font-family: $sub-title, sans-serif;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 80px;
+  letter-spacing: 0px;
+  color: $title-color;
+}
+
+.block-title {
+  font-family: $block-title, sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 51px;
+  letter-spacing: 0px;
+  color: $title-color;
+}

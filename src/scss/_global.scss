@@ -1,0 +1,43 @@
+@use 'var/var' as *;
+@use 'var/font-mixin' as *;
+@use 'var/font' as *;
+//----------Прижимаем футер к низу
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; //или 100%
+}
+
+.main {
+  flex: 1 0 auto;
+}
+
+.footer {
+  flex: 0 0 auto;
+}
+//---------------------
+
+.container {
+  max-width: #{$maxWidth}px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2px;
+}
+
+//------------
+
+body {
+  background-color: $bg-color;
+  @include safe-font($text, $font-type);
+  @include font-media($p-size, $p-size-mob);
+  font-family: $text, $font-type;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $text-color;
+}

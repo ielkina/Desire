@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	@@include('html/_head.html', {"title": "About"})
+
+	<body>
+		@@include('html/_header.html', {})
+		<h1>вторая страница сайта</h1>
+		<main></main>
+		@@include('html/_footer.html', {})
+
+	</body>
+
+</html>
+
+  <!-- синтаксис склейки html -->
+  @@include('html/_head.html', {"title": "Главная"})
+  <body>
+    <main class="wrapper">@@include('html/_header.html', {})</main>
+    <script src="js/app.min.js"></script>
+
+    @@include('html/_head.html', {"title": "Home"})
+    @@include('html/_header.html', {})
+    <h1>hi</h1>
+    <span>
+      <!-- <img src="@img/bg.jpg" alt=""> -->
+    </span>
+    @@include('html/_footer.html', {})
+    <script src="js/app.min.js"></script>
+  </body>

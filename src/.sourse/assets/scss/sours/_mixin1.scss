@@ -1,0 +1,285 @@
+@mixin posab($pos: absolute, $content: '', $display: block, ) {
+  content: $content;
+  position: $pos;
+  // display: $display;
+}
+
+// Использование миксина без аргументов
+// .class::after {
+//   @include posab;
+//   width: 30px;
+//   height: 30px;
+// }
+
+
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + '%');
+
+  @if $pseudo {
+    &::before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  }
+
+  @else {
+    padding-top: $padding;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   @include responsive-ratio(16, 9);
+// }
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Использование миксина 
+// .header {
+//   padding: 20px;
+//   @include mq('tablet') {
+//     padding: 15px;
+//   }
+// }
+
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + '%');
+
+  @if $pseudo {
+    &::before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  }
+
+  @else {
+    padding-top: $padding;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   @include responsive-ratio(16, 9);
+// }
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Использование миксина 
+// .header {
+//   padding: 20px;
+//   @include mq('tablet') {
+//     padding: 15px;
+//   }
+// }
+
+@mixin r($width) {
+  @media (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   font-size: 30px;
+//   @include r(768) {
+//     font-size: 20px;
+//   }
+// }
+
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   font-size: 14px;
+//   @include line-clamp(3);
+// }
+
+@mixin posab($pos: absolute, $content: '', $display: block, ) {
+  content: $content;
+  position: $pos;
+  // display: $display;
+}
+
+// Использование миксина без аргументов
+// .class::after {
+//   @include pseudo;
+//   width: 30px;
+//   height: 30px;
+// }
+
+
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + '%');
+
+  @if $pseudo {
+    &::before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  }
+
+  @else {
+    padding-top: $padding;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   @include responsive-ratio(16, 9);
+// }
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Использование миксина 
+// .header {
+//   padding: 20px;
+//   @include mq('tablet') {
+//     padding: 15px;
+//   }
+// }
+
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+  $padding: unquote(($y / $x) * 100 + '%');
+
+  @if $pseudo {
+    &::before {
+      @include pseudo($pos: relative);
+      width: 100%;
+      padding-top: $padding;
+    }
+  }
+
+  @else {
+    padding-top: $padding;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   @include responsive-ratio(16, 9);
+// }
+
+@mixin mq($width, $type: min) {
+  @if map_has_key($breakpoints, $width) {
+    $width: map_get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}
+
+// Использование миксина 
+// .header {
+//   padding: 20px;
+//   @include mq('tablet') {
+//     padding: 15px;
+//   }
+// }
+
+@mixin r($width) {
+  @media (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   font-size: 30px;
+//   @include r(768) {
+//     font-size: 20px;
+//   }
+// }
+
+@mixin line-clamp($lines: 1) {
+  @if $lines <=1 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @else {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+// Использование миксина 
+// .class {
+//   font-size: 14px;
+//   @include line-clamp(3);
+// }
+
+
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 1128px) {}
+
+@media (max-width: 945px) {}
+
+@media (max-width: 795px) {}
+
+@media (max-width: 733px) {}
+
+@media (max-width: 375px) {}

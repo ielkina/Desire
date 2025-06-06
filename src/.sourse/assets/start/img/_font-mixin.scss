@@ -1,0 +1,54 @@
+//Миксин подключеине локальных шрифтов
+
+@mixin font($font, $font-url, $weight) {
+  @font-face {
+    font-family: '#{$font}';
+    src: url('../font/#{$font-url}.woff2') format('woff2'),
+    url('../font/#{$font-url}.woff') format('woff');
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+    // font-stretch: normal;
+    // unicode-range: U+0020-2212;
+  }
+}
+
+
+@mixin responsive-font($small, $medium, $large) {
+  font-size: $small;
+
+  @media (min-width: 768px) {
+    font-size: $medium;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: $large;
+  }
+}
+
+
+
+@mixin font-weight($font-family, $weight) {
+  font-family: $font-family;
+  font-weight: $weight;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  line-height: $size * 1.5;
+}
+
+
+
+
+//Расчет отзывчивого(адаптивного) шрифта
+@mixin font-media($size, $min-size, $min-screen) {
+  $add-size: $size - $min-size;
+  $maxWidth: $maxWidth - $min-screen;
+  font-size: calc(#{$min-size + px} + #{$add-size} * ((100vw - #{$min-screen + px}) / #{$maxWidth}));
+}
+
+//Проверка работы миксина
+// body {
+//   @include font-media(18, 14, $minWidth);
+// }

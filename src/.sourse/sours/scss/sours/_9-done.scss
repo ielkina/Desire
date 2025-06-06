@@ -1,0 +1,108 @@
+@import "../../node_modules/slick-carousel/slick/slick.scss";
+
+.done {
+  padding-bottom: 99px;
+  @include sm() {
+    padding-bottom: 50px;
+  }
+  @include md() {
+    text-align: center;
+  }
+
+  &__title {
+    @include subtitle-decore();
+    margin-bottom: 49px;
+    @include xsm() {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__inner {
+    margin: 0 -5px;
+  }
+
+  &__item {
+    // &:not(:last-child) {
+    //   margin-right: 14px;
+    // }
+    // margin: 0 7px;
+  }
+
+  &__item-box {
+    // max-width: 390px;
+    // min-height: 350px;
+    box-shadow: 0 0 0 1px $grey;
+    padding: 4px 4px 16px 4px;
+    margin: 0 7px;
+    text-align: center;
+    // padding: 4px 4px 11px;
+    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 0 1px $accent;
+      background-color: $accent;
+      color: #fff;
+    }
+  }
+
+  &__item-img {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 14px;
+    
+  }
+
+  &__item-title {
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+
+  &__item-saving {
+  }
+
+  .slick-slider {
+    // padding: 3px;
+  }
+
+  .slick-track {
+    padding: 2px 0;
+    // margin: 0 auto;
+  }
+
+  .slick-list {
+    // margin-bottom: 50px;
+    // padding: 3px;
+  }
+
+  .slick-dots {
+    display: flex;
+    justify-content: center;
+    font-size: 0;
+    margin-top: 50px;
+    // padding: 1px;
+    height: 3px;
+
+    // background-color: $grey;
+    & button {
+      width: 50px;
+      height: 1px;
+      background-color: $grey;
+      margin: 0 10px;
+      transition: all 0.3s ease-in-out;
+      @include sm() {
+        width: 23px;
+      }
+      @include xsm() {
+        margin: 0 5px;
+      }
+    }
+  }
+
+  .slick-active {
+    & button {
+      height: 3px;
+      background-color: $accent;
+    }
+  }
+}

@@ -1,0 +1,208 @@
+.reviews-slider {
+  margin-top: 45px;
+  height: 383px;
+  margin-bottom: 123px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__photo {
+    border-radius: 50%;
+    margin-left: 90px;
+    margin-right: 40px;
+  }
+
+  &__quotes {
+    max-width: 650px;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  &__comment {
+    padding-top: 5px;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.5;
+    word-spacing: 2px;
+    margin-bottom: 30px;
+    position: relative;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 24px;
+      height: 19px;
+      background-image: url(../img/other/quotes.svg);
+    }
+
+    &::before {
+      left: -40px;
+    }
+
+    &::after {
+      right: -40px;
+      bottom: 0;
+      transform: scaleX(-1);
+    }
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 20px;
+    color: $orange;
+  }
+
+  &__prof {
+    font-size: 15px;
+    margin-top: 15px;
+    color: $dark;
+    font-style: normal;
+    display: block;
+  }
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.01);
+  border: 3px solid $grey-light;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  outline: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, border 0.3s, box-shadow 0.3s ease-in-out;
+
+  &:hover {
+    background-color: $light;
+    border: 3px solid $pink;
+
+    & .slick-prev__icon-use,
+    & .slick-next__icon-use {
+      fill: $pink;
+    }
+  }
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.01);
+    border: 3px solid $grey-light;
+    box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+
+    & .slick-prev__icon-use,
+    & .slick-next__icon-use {
+      fill: $grey-light;
+    }
+
+    & .slick-prev__icon {
+      transform: rotate(90deg);
+    }
+
+    & .slick-next__icon {
+      transform: rotate(-90deg);
+
+    }
+  }
+
+  &:active {
+    background-color: $light;
+    border: 3px solid $light;
+    box-shadow: none;
+
+    & .slick-prev__icon-use,
+    & .slick-next__icon-use {
+      fill: $coral;
+    }
+
+    & .slick-prev__icon {
+      transform: rotate(90deg);
+    }
+
+    & .slick-next__icon {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__icon {
+    width: 34px;
+    height: 34px;
+    outline: transparent;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__icon-use {
+    width: 18.5px;
+    height: 10.83px;
+    fill: $grey-light;
+    transition: fill 0.3s ease-in-out;
+  }
+}
+
+.slick-prev {
+  border: 3px solid $orange;
+
+  & .slick-prev__icon-use {
+    fill: $orange;
+  }
+
+  left: 41%;
+  transform: translateX(-15%);
+}
+
+.slick-next {
+  left: 57%;
+  transform: translateX(-22%);
+}
+
+.slick-dots {
+  display: flex;
+  font-size: 0px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+
+  & li {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  & button {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: transparent;
+    background-color: $grey;
+    outline: transparent;
+    transition: background-color 0.3s, box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $light;
+      box-shadow: 0px 0px 0px 2px rgba(255, 122, 80, 0.7);
+    }
+
+    &:focus {
+      background-color: $grey;
+      box-shadow: 0px 0px 0px 2px $orange;
+    }
+
+    &:active {
+      background-color: $light;
+      box-shadow: none;
+    }
+  }
+}
+
+.slick-active {
+  & button {
+    background-color: $orange;
+  }
+}

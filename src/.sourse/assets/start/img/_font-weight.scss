@@ -1,0 +1,13 @@
+//шрифты безопасности
+@mixin font-save($font-glob, $type) {
+  font-family: '#{$font-glob}',
+  $save-fonts,
+  $type;
+}
+
+//Проверка работы миксина
+// body {
+// @include font-save($font-glob); //или
+// @include font-save($opensans); //или
+// @include font-save(OpenSans); //или
+// }

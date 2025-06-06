@@ -1,0 +1,49 @@
+@use 'var' as *;
+
+//тип шрифтов
+$sans-serif: sans-serif;
+$serif: serif;
+
+//safe-font
+//безопасные шрифты
+$helvetica: 'Helvetica';
+$arial: 'Arial';
+$verdata: 'Verdana';
+
+//***************************************************
+//миксин подключение глобальных шрифтов проекта и шрифтов безопасности
+@mixin safe-font($text, $type) {
+  font-family: '#{$text}', $helvetica, $arial, $type;
+}
+//применение
+// @include safe-font("Open Sans", sans-serif);
+
+//**************************************************
+// Расчет отзывчивого(адаптивного) шрифта
+
+@mixin font-media($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $maxWidth: $maxWidth - $minWidth;
+  font-size: calc(
+    #{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth}px) / #{$maxWidth})
+  );
+}
+//применение
+//@include font-media(16, 14);
+//выход
+// font-size: calc(14px + 2*(100vw - 340px)/793)
+
+@mixin adapt-font($size, $min-size, $min-screen, $maxWidth) {
+  $add-size: $size - $min-size;
+  $maxWidth: $maxWidth - $minWidth;
+  font-size: calc(
+    #{$min-size + px} + #{$add-size} *
+      ((100vw - #{$minWidth + px}) / #{$maxWidth})
+  );
+}
+
+//Проверка работы миксина
+//@include font-media(16, 14, $minWidth, $maxWidth);
+//@include font-media(16, 14, 340, 1280);
+
+//*******************

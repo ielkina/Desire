@@ -1,0 +1,40 @@
+//container
+$maxWidth: 1133;
+$minWidth: 340;
+$p-size: 16;
+$p-size-mob: 14;
+$font-weight: 400;
+$line-height: calc(27 / $p-size);
+// line-height = высота строки / размер шрифта
+// $line-height: calc(1 + ($p-size / 40)); // Динамический расчет
+$letter-spacing: normal;
+
+
+//font
+$title: 'Montserrat';
+$sub-title: 'Montserrat';
+$block-title: 'Montserrat';
+$text: 'OpenSans';
+$font-type: sans-serif;
+
+// color
+$bg-color: #fff;
+$bg-footer-color: #a1a1a1;
+$bg-footer-copy-color: #363838;
+
+//color-btn
+$btn-color: #fffff0;
+$bg-btn: #363838;
+$bg-btn-active: #a1a1a1;
+$bg-btn-tab-active: #ffef35;
+$btn-tag-border: #8f8d8d;
+
+//color-font
+$title-color: #363838;
+$text-color: #5a5a5a;
+$p-tab-color: #8f8d8d;
+$p-tab-color-active: #363838;
+
+//color-input
+$input-border: #dfdfdf;
+$input-color: #a1a1a1;

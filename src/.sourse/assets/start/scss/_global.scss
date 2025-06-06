@@ -1,0 +1,28 @@
+//НАСТРОЙКА ШРИФТОВ ПРОЕКТА
+//название
+$font-name: "Poppins";
+//тип шрифта
+$font-type: sans-serif;
+//стиль шрифта
+$font-style: normal;
+//вес шрифта
+$font-weight-400: 400;
+//размер шрифта
+$font-size: 16;
+//тексты
+$p-size: 18;
+$p-min-size: 14;
+//заголовки
+$h1: 72;
+$h1-min: 45;
+$h2: 32;
+$h2-min: 20;
+$h3: 24;
+$h3-min: 14;
+//цвет шрифта
+$text-color: #000;
+$title-text-color: #000;
+$subtitle-text-color: #000;
+//РАЗМЕРЫ ЭКРАНОВ
+$minWidth: 320;
+$maxWidth: 1920;

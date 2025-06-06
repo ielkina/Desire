@@ -1,0 +1,277 @@
+
+---
+# Node.js
+- Для обеспечение работы Gulp на компьютере должен быть установлен Node.js.
+Установка первичная и единоразовая.\
+[Скачать](https://nodejs.org/en/download) \
+Проверка версии Node.js и npm\
+Наберите команду в терминале
+```
+node -v
+npm  -v
+```
+
+---
+
+# Gulp - первичная установка
+
+- Устанавливается глобально. \
+  [Перейти на сайт с инструкцией](https://gulpjs.com/docs/en/getting-started/quick-start)
+
+Команда установки для терминала
+
+```
+npm install --global gulp-cli
+```
+
+---
+
+# Gulp - установка
+
+- Создаем папку проекта
+- В папку с проектом копируем установочные файлы Gulp
+
+```
+/src
+gulpfiles.js
+.gitignore
+readme.md
+```
+
+- Инициализируем проект
+
+```
+npm init
+```
+
+или
+
+```
+npm init -y
+```
+
+создается фаил package.json
+
+- В папке с проектом устанавливаем локально gulp
+
+```
+npm install --save-dev gulp
+```
+# Git - инициализация репозитория для git сервиса
+
+```
+git init
+git add .
+```
+
+создать репозиторий на GitHub
+echo "# AutoExpress" >> README.md
+
+```
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin \
+https://github.com/ielkina/(название проекта).git
+git push -u origin main
+git push
+```
+
+---
+# Установка пакетов gulp
+
+
+
+
+
+
+
+<!--
+
+5. Запуск таск-менджера в терминале
+   gulp
+6. удалить ненужный пакет
+   npm uninstall less
+
+
+
+
+
+
+
+
+
+
+
+#####
+В СБОРКЕ данной версии
+
+    HTML, PUG, SCSS, JS, Формирование и подключение оптимальных форматов картинок(WEBP) и шрифтов.
+    Архивация проекта, отправка проекта на удаленный сервер.
+
+Команды для установки GULP
+
+    1. npm i
+    npm init Инициализация Node.js в проекте
+    npm i -gulp-cli -g Установка Gulp пакетов глобально
+    npm i gulp -D Установка Gulp локально
+
+Дополнительные пакеты. Нужно установить вручную
+
+webp-converter@2.2.3 
+
+@babel/core 
+@babel/preset-env 
+@types/gulp-webp
+gulp-babel 
+@babel/core 
+@babel/presen-env 
+--save-dev
+
+Команды
+
+    npm run svgSprive  Склейка svg картинок
+    npm run dev        Запуск в режиме разработки
+    npm run build      Сборка проекта режим продакшн конечный результат
+    npm run zip        Архивация проекта
+    npm run deploy     Вызов в режиме продакшн на удаленный сервер
+
+Структура исходной папки(src) папки и файлы
+
+    Папка с исходниками src:
+
+    	files: /files/**/*.*,
+        font: /font/*.*,
+    	html: /html/*.html,
+    	images: /img/**/*.{jpg,jpeg,png,gif,webp},
+    	js: /js/app.js,
+    	pug: /pug/*.pug,
+    	scss: /scss/style.scss,
+    	svgicons: /svgicons/*.svg
+
+    Папка проекта:
+
+    	css: /css/
+        files:/files/
+    	font: /font/
+    	images: /img/
+    	js: /js/
+    	html: /
+
+    - Название папок и файлов в исходной папке(src) принципиально важно т.к сборка написана под эти названия
+
+
+
+* Настройка GULP под продакшн или разработку, а так же настройка компилятора PUG, или работа с HTML файлами
+
+
+- `Gulp2022\gulp\config\path.js`
+
+  | `const buildFolder = ./project`; - меняем название проекта
+
+  | При работе с Pug в этом же файле разкоментируем pug и закомментируем html в `export const path = {src, watch}`.
+
+- Дальше в `Gulp2022\gulp\tasks\html.js`
+
+  | Комментируем `.pipe(fileinclude())` и разкомментирываем `.pipe(pug({pretty: true,verbose: true,}))`
+
+- Так же в `Gulp2022\gulp\tasks\js.js` по желанию вносим изменения
+
+  | Так в при режиме продакшн и архивации конечного результата проекта закомментировать `.pipe(uglify())`, в процессе разработки разкоментировать
+
+- В `Gulp2022\gulp\tasks\scss.js` вносим желаемые изменения
+
+- В `Gulp2022\gulp\config\ftp.js` вносим данные удаленного сервера Вашего или заказчика
+
+- В `Gulp2022\gulpfile.js` так же стоит обратить внимание на внесение изменений по желанию при работе с удаленным сервером
+
+В СБОРКЕ
+
+        "@babel/core": "^7.18.5",
+        "@babel/preset-env": "^7.18.2",
+        "browser-sync": "^2.27.10",
+        "concat": "^1.0.3",
+        "del": "6.1.1",
+        "fs": "^0.0.1-security",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-babel": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-coffee": "^3.0.3",
+        "gulp-concat": "^2.6.1",
+        "gulp-cssimport": "^7.0.0",
+        "gulp-csso": "^4.0.1",
+        "gulp-file-include": "^2.3.0",
+        "gulp-fonter": "^0.3.0",
+        "gulp-group-css-media-queries": "^1.2.2",
+        "gulp-htmlmin": "^5.0.1",
+        "gulp-if": "^3.0.0",
+        "gulp-imagemin": "^7.1.0",
+        "gulp-less": "^5.0.0",
+        "gulp-load-plugins": "^2.0.7",
+        "gulp-newer": "^1.4.0",
+        "gulp-notify": "^4.0.0",
+        "gulp-plumber": "^1.2.1",
+        "gulp-pug": "^5.0.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-replace": "^1.1.3",
+        "gulp-sass": "^5.1.0",
+        "gulp-sass-glob": "^1.1.0",
+        "gulp-shorthand": "^1.1.0",
+        "gulp-size": "^4.0.1",
+        "gulp-sourcemaps": "^3.0.0",
+        "gulp-stylus": "^2.7.1",
+        "gulp-svg-sprite": "^1.5.0",
+        "gulp-ttf2woff2": "^4.0.1",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "gulp-uglify": "^3.0.2",
+        "gulp-uglify-es": "^3.0.0",
+        "gulp-util": "^3.0.8",
+        "gulp-version-number": "^0.2.4",
+        "gulp-watch": "^5.0.1",
+        "gulp-webp": "^4.0.1",
+        "gulp-webp-css": "^1.1.0",
+        "gulp-webp-html": "^1.0.2",
+        "gulp-webp-html-nosvg": "^1.1.1",
+        "gulp-webpcss": "^1.1.1",
+        "gulp-zip": "^5.1.0",
+        "jquery": "^3.6.0",
+        "less": "^4.1.3",
+        "pug": "^3.0.2",
+        "rename": "^1.0.4",
+        "require-dir": "^1.2.0",
+        "sass": "^1.52.3",
+        "scss": "^0.2.4",
+        "swiper": "^8.2.4",
+        "typescript": "^4.7.4",
+        "vinyl-ftp": "^0.6.1",
+        "webp-converter": "^2.2.3",
+        "webpack": "^5.73.0",
+        "webpack-stream": "^7.0.0"
+ -->
+ "@babel/core": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "browser-sync": "^2.27.10",
+    "del": "6.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-coffee": "^3.0.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "7.1.0",
+    "gulp-less": "^5.0.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-pug": "^5.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-size": "^4.0.1",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-stylus": "^2.7.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.52.3",
+    "scss": "^0.2.4",
+    "typescript": "^4.7.3"

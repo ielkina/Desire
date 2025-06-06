@@ -1,0 +1,23 @@
+$base-font-size: 22px;
+@mixin ph {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  // color: blue;
+  font-size: $base-font-size;
+  font-family: Arial;
+  line-height: 1.5;
+  background: url("../img/1imeg.jpg") no-repeat / cover;
+
+  @include ph {
+    color: aqua;
+    background-color: blueviolet;
+  }
+}
+
+@import "block/*.scss";

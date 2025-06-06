@@ -1,0 +1,37 @@
+//gulp-webp-css //альтернативный плагин webpcss
+//определяет какую картинку выводить с помощью медиа запроса @supports
+//не работает в сафари и apple веб приложениях
+// @supports (-webkit-appearance: none;){
+// 	body {
+// 		background: url(../img/icon/close.svg) 0 0 no-repeat;
+// 	}
+// 	.block {
+// 		background: url(../img/icon/close.webp) 0 0 no-repeat;
+// 	}
+// }
+
+@import "fonts";
+// @import "zero";
+// @import "global";
+body {
+	background: url("@img/bg.jpg") 0 0 no-repeat;
+	h1 {
+		font-family: Poppins;
+		color: red;
+	}
+	span {
+		color: red;
+	}
+}
+
+@media (wax-width: 768px) {
+	span {
+		font-size: 20px;
+	}
+}
+
+@media (wax-width: 768px) {
+	h1 {
+		font-size: 20px;
+	}
+}

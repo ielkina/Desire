@@ -1,0 +1,42 @@
+//адаптивный шрифт
+//миксины
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+}
+
+@mixin adaptiv-font-media($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+  }
+
+  @media (min-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+
+
+h1 {
+  // font-size: 40px;
+  font-weight: 900;
+  font-size: calc(24px + 16 * (100vw / 1280));
+  //calc(минимальное значение шрифта(24) + ризница максимального  шрифта и минимального шрифта(40-24=16)
+  //* (ширина экрана (100vw) / на ширину макета (1280)
+
+  @media (max-width: 767px) {
+    font-size: calc(24px + (16 + 16 * 0.7)* ((100vw - 320px) / 1280));
+    //320 - минимальная ширина экрана
+    //16 * 0.7 - 70% разницы
+  }
+}
+
+h2 {
+  font-weight: 900;
+  @include adaptiv-font(40, 24);
+  @include adaptiv-font-media(40, 24);
+}

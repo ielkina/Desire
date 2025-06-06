@@ -1,0 +1,32 @@
+//фаил с прописанными стилями
+@import "./vars";
+* {
+	padding: 0 0 0 0;
+}
+html,
+body {
+	margin: 0;
+}
+h1 {
+	color: $h1Color;
+}
+a {
+	text-decoration: none;
+	color: blue;
+	&:hover {
+		text-decoration: none;
+	}
+	span {
+		border-bottom: 1px solid blue;
+	}
+}
+
+.product {
+	margin: 0 auto;
+	&__name {
+		text-align: center;
+	}
+	&__price {
+		text-emphasis: none;
+	}
+}

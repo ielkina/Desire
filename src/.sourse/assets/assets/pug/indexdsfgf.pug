@@ -1,0 +1,13 @@
+extends layout/app
+block page
+  include chunk/header
+  h1.title Главная
+  //- picture
+  //-   sourse(srcset="img/zsu.webp", type="image/webp")
+  img(src="img/zsu.jpg", alt="ЗСУ", width="500")
+  ul.news
+    each item in news
+      li=item.name
+      //- li=item.body
+
+  include chunk/footer

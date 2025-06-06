@@ -1,0 +1,29 @@
+//ИМЯ ШРИФТА
+
+$rubik: 'Rubik';
+$opensans: 'OpenSans';
+$dmsans: 'DMSans';
+$poppins: 'Poppins';
+$roboto: 'Roboto';
+$quicksand: 'Quicksand';
+$myriadpro: 'MyriadPro';
+$montserrat: 'Montserrat';
+//синтаксис
+// body {
+//   font-family: $montserrat, sans-serif;
+// }
+
+//группировка переменных
+
+$name: (
+  rubik: 'Rubik',
+  opensans: 'OpenSans',
+  dmsans: 'DMSans',
+  poppins: 'Poppins',
+  roboto: 'Roboto',
+  quicksand: 'Quicksand',
+  myriadpro: 'MyriadPro',
+  montserrat: 'Montserrat',
+);
+
+//синтаксис   font-family: map-get($name, opensans);

@@ -1,0 +1,39 @@
+main {
+  p {
+    color: rgb(161, 212, 18);
+  }
+}
+$base-font-size: 22px;
+
+@mixin ph {
+  @media (max-width: 700px) {
+    @content;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: blue;
+  font-size: $base-font-size;
+  font-family: Arial;
+  line-height: 1.5;
+  background-color: url("img/zsu.jpg") no-repeat / cover;
+
+  @include ph {
+    color: aqua;
+    background-color: blueviolet;
+  }
+}
+@import "path/*.scss"; //подключение с помощью  плагина gulp-sass-glob
+main {
+  p {
+    color: rgb(161, 212, 18);
+  }
+}
+body {
+  background: url("@img/bg-light.jpg");
+}
+@import "path/title.scss";

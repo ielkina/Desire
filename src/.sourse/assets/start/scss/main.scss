@@ -1,0 +1,17 @@
+// @import "font/font-link.scss";
+@import "global";
+@import "font";
+
+@include font($font-name, #{$font-name}-#{'Regular'}, $font-style, 400); //миксин подключения шрифта
+@include font($font-name, #{$font-name}-#{'Regular'}, $font-style, 600); //миксин подключения шрифта
+@include font($font-name, #{$font-name}-#{'Bolt'}, $font-style, 600); //миксин подключения шрифта
+
+body {
+  font-size: #{$p-size}px;
+  color: $text-color;
+}
+
+body {
+  @include font-media($p-size, $p-min-size, $minWidth, $maxWidth); //подключение миксина медиа(адаптивного) шрифтов
+  @include font-save($font-name, $font-type); //подключение миксина глобального шрифта и шрифтов безопасности
+}

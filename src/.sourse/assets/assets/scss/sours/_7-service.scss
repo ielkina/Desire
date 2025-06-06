@@ -1,0 +1,175 @@
+.service {
+  padding-top: 299px;
+  padding-bottom: 100px;
+  @include lg() {
+    padding-top: 199px;
+  }
+  @include xsm() {
+    padding-top: 85px;
+    padding-bottom: 50px;
+  }
+
+  &__title {
+    @include subtitle-decore();
+    margin-bottom: 47px;
+    @include md() {
+      text-align: center;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    margin-bottom: 37px;
+    @include lg() {
+      // flex-direction: column;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__content {
+    max-width: 504px;
+    margin-right: 96px;
+    @include lg() {
+      max-width: 100%;
+      margin-right: 0;
+    }
+  }
+
+  &__content-box {
+    &:nth-child(1) {
+      margin-bottom: 68px;
+      @include lg() {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__content-title {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 28px;
+    color: $accent;
+    margin-bottom: 12px;
+  }
+
+  // &__content-textbox {
+  // }
+
+  &__content-text {
+    margin-bottom: 12px;
+  }
+
+  &__list {
+    width: 500px;
+    counter-reset: my-counter;
+    @include lg() {
+      order: -1;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__item {
+    counter-increment: my-counter;
+    width: 450px;
+    box-shadow: 0 0 0 1px $grey;
+    padding: 12px 19px 9px 113px;
+    position: relative;
+    transition: box-shadow 0.3s, width 0.3s ease-in-out;
+    @include lg() {
+      width: 100%;
+    }
+
+    &::before {
+      position: absolute;
+      content: "0" counter(my-counter);
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 56px;
+      color: $grey;
+      left: 29px;
+      top: 8px;
+      transform: rotate(-90deg);
+      transition: color 0.3s ease-in-out;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &:hover {
+      width: 500px;
+      box-shadow: 0 0 0 2px $accent;
+      @include xl() {
+        width: 450px;
+      }
+      @include lg() {
+        width: 100%;
+      }
+
+      &::before {
+        color: $accent;
+      }
+
+      & .service__item-title {
+        color: $accent;
+      }
+    }
+  }
+
+  &__item-title {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 27px;
+    @include font-media(24, 23);
+    transition: color 0.3s ease-in-out;
+  }
+
+  &__item-text {
+    max-width: 318px;
+    line-height: 27px;
+    @include lg() {
+      width: 100%;
+    }
+    @include xsm() {
+      line-height: 18px;
+    }
+  }
+
+  &__btn {
+    padding: 18px 54.5px;
+    @include xsm() {
+      padding: 18px 30px;
+    }
+  }
+
+  &__btn--decore {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "жми";
+      text-transform: uppercase;
+      color: $grey;
+      margin-left: 139px;
+      @include xsm() {
+        margin-left: 43px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 80px;
+      height: 2px;
+      background-color: $grey;
+      right: -75px;
+      top: 50%;
+      @include xsm() {
+        width: 26px;
+        right: -8px;
+        // padding-top: 85px;
+      }
+    }
+  }
+}

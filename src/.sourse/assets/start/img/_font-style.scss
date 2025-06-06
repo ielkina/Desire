@@ -1,0 +1,44 @@
+//СТИЛЬ ШРИФТА
+$thin: 'Thin';
+$thin-italic: 'Thin-Italic';
+$extraLight: 'ExtraLight';
+$extraLightItalic: 'ExtraLightItalic';
+$light: 'Light';
+$light-italic: 'Light-Italic';
+$regular: 'Regular';
+$regularItalic: 'RegularItalic';
+$medium: 'Medium';
+$mediumItalic: 'MediumItalic';
+$semiBold: 'SemiBold';
+$semiBoldItalic: 'SemiBoldItalic';
+$bold: 'Bold';
+$boldItalic: 'BoldItalic';
+$extraBold: 'ExtraBold';
+$extraBold-italic: 'ExtraBold-Italic';
+$black: 'Black';
+$black-italic: 'Black-Italic';
+$extraBlack-italic: 'ExtraBlack-Italic';
+
+$style: (
+  thin: 'Thin',
+  thin-italic: 'Thin-Italic',
+  extraLight: 'ExtraLight',
+  extraLightItalic: 'ExtraLightItalic',
+  light: 'Light',
+  light-italic: 'Light-Italic',
+  regular: 'Regular',
+  regularItalic: 'RegularItalic',
+  medium: 'Medium',
+  mediumItalic: 'MediumItalic',
+  semiBold: 'SemiBold',
+  semiBoldItalic: 'SemiBoldItalic',
+  bold: 'Bold',
+  boldItalic: 'BoldItalic',
+  extraBold: 'ExtraBold',
+  extraBold-italic: 'ExtraBold-Italic',
+  black: 'Black',
+  black-italic: 'Black-Italic',
+  extraBlack-italic: 'ExtraBlack-Italic',
+);
+
+//синтаксис   font-family: map-get($style, bold);

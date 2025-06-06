@@ -1,0 +1,38 @@
+.link {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s background-color, fill 0.3s, box-shadow 0.3s ease-in-out;
+}
+.link:hover {
+  background-color: blue;
+}
+.link:focus {
+  background-color: #c1c1c1;
+  box-shadow: 0px 0px 0px 1px blue;
+}
+
+.link:focus svg {
+  fill: blue;
+}
+.link:active {
+  box-shadow: none;
+}
+.link:active svg {
+  fill: blueviolet;
+}
+.link__icon {
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  fill: #c1c1c1;
+  z-index: 100;
+  transition: fill 0.3s ease-in-out;
+}
+.link__icon:hover {
+  fill: #fff;
+}

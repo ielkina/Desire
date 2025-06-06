@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Анимации ParollerJS, ParallaxJS</title>
+    <style>
+      body {
+        height: 200vh;
+        padding-top: 100px;
+      }
+      .text {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="my-paroller text"
+      data-paroller-factor="-0.3"
+      data-paroller-type="foreground"
+      data-paroller-direction="vertical"
+    >
+      Текст
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="../paroller.js-master/paroller.js-master/dist/jquery.paroller.min.js"></script>
+    <script>
+      $(".my-paroller").paroller();
+    </script>
+  </body>
+</html>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script> -->

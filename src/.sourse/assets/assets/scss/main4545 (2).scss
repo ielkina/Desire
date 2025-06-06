@@ -1,0 +1,9 @@
+.title {
+  text-transform: uppercase;
+  color: rgb(219, 216, 10);
+  @include ph {
+    text-align: center;
+    color: aqua;
+    background-color: blueviolet;
+  }
+}

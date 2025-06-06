@@ -1,0 +1,61 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+body {
+  line-height: 1;
+  font-family: Poppins;
+  font-size: 16;
+  color: #666666;
+}
+[class*="__container"] {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+*
+  padding: 0
+  margin: 0
+  border: 0
+*, *:before, *:after
+  box-sizing: border-box
+:focus, :active
+  outline: none
+a:focus, a:active
+  outline: none
+nav, footer, header, aside
+  display: block
+html, body
+  height: 100%
+  width: 100%
+  font-size: 100%
+  line-height: 1
+input, button, textarea
+  font-family: inherit
+input::-moz-focus-inner
+  display: none
+button
+  cursor: pointer
+button::-moz-focus-inner
+  padding: 0
+  border: 0
+a,a:visited
+  text-decoration: none
+a:hover
+  text-decoration: none
+ul,li
+  list-style: none
+img
+  vertical-align: top
+h1,h2,h3,h4,h5,h6
+  font-size: inherit
+  font-weight: inherit

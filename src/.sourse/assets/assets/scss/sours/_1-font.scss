@@ -1,0 +1,61 @@
+//безопасные шрифты
+$helvetica: 'Helvetica';
+$arial: 'Arial';
+$verdata: 'Verdana';
+//тип шрифтов
+$sans-serif: sans-serif;
+$serif: serif;
+
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('../font/#{$url}.woff2') format('woff2'),
+    url('../font/#{$url}.woff') format('woff');
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+//примение
+// @include font-face($font-family, #{$font-family}-Thin, 100);
+// @include font-face($font-family, #{$font-family}-Thin-Italic, 100);
+// @include font-face($font-family, #{$font-family}-ExtraLight, 200);
+// @include font-face($font-family, #{$font-family}-ExtraLight-Italic, 200);
+@include font-face($font-family, #{$font-family}-Light, 300);
+// @include font-face($font-family, #{$font-family}-Light-Italic, 300);
+@include font-face($font-family, #{$font-family}-Regular, 400);
+// @include font-face($font-family, #{$font-family}-Regular-Italic, 400);
+// @include font-face($font-family, #{$font-family}-Medium, 500);
+// @include font-face($font-family, #{$font-family}-Medium-Italic, 500);
+// @include font-face($font-family, #{$font-family}-SemiBold, 600);
+// @include font-face($font-family, #{$font-family}-SemiBold-Italic, 600);
+// @include font-face($font-family, #{$font-family}-Bold, 700);
+// @include font-face($font-family, #{$font-family}-Bold-Italic, 700);
+// @include font-face($font-family, #{$font-family}-ExtraBold, 800);
+// @include font-face($font-family, #{$font-family}-ExtraBold-Italic, 800);
+// @include font-face($font-family, #{$font-family}-Black, 900);
+// @include font-face($font-family, #{$font-family}-Black-Italic, 900);
+// @include font-face($font-family, #{$font-family}-ExtraBlack, 950);
+// @include font-face($font-family, #{$font-family}-ExtraBlack-Italic, 950);
+
+@mixin safe-font($font-family) {
+  font-family: '#{$font-family}',
+  $helvetica,
+  $arial,
+  $sans-serif;
+}
+//применение 
+//@include safe-font($font-family);
+
+
+@mixin font-media($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width: $xl) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - #{$minWidth + px}) / #{$maxWidth}));
+  }
+}
+//применение
+//@include font-media(16, 16);
+

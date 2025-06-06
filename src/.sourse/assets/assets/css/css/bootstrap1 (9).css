@@ -1,0 +1,19 @@
+a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size .5s;
+}
+
+a:hover {
+    background-size: 100% 1.5px;
+}
+.fancybox-slide--iframe .fancybox-content {
+    width  : 800px;
+    height : 600px;
+    max-width  : 80%;
+    max-height : 80%;
+    margin: 0;
+}

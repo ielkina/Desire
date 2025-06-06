@@ -1,0 +1,278 @@
+/* ---------------------fonts-------------------------- */
+@import url(https://fonts.googleapis.com/css?family=Poppins:regular,500,600&display=swap);
+
+@font-face {
+  font-family: CalSans;
+  font-display: swap;
+  src: url("../font/CalSans-SemiBold.woff") format("woff"),
+    url("../font/CalSans-SemiBold.woff") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+/* ------------------------------zero-------------------------------------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+body {
+  line-height: 1;
+  font-family: "Poppins";
+  color: #666666;
+}
+a {
+  text-decoration: none;
+}
+/* ul, */
+li {
+  list-style: none;
+}
+/* ------------------------------- */
+.wrapper {
+  overflow: hidden; /*убирает горизонтальный скрол*/
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------------------------------------- */
+.page {
+  flex: 1 1 auto; /* прижимает подвал с низу страниц */
+}
+.page__main {
+}
+
+/* ---------------------------------------------------- */
+/* селектор атрибута. любой контент с класс __container 
+будет принимать те свойства которые указаны в этом селекторе (квадратных
+скобках) */
+[class*="__container"] {
+  /* за счет добавления отступов безопасности следует увеличивать сам контейнер
+  + два отступа безопасности */
+  max-width: 1230px; /*по макету контейнер 1200 + 2 отступа безопасности*/
+  margin: 0 auto; /* отцентровка */
+  padding: 0px 15px; /* отступы безопасности */
+}
+/* ------------------------------- */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+}
+.header__container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  gap: 131px;
+  align-items: center;
+  min-height: 154px;
+}
+.header__logo {
+}
+.header__menu {
+}
+.menu {
+  padding: 10px 15px 10px 0px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.26);
+}
+.menu__list {
+  display: flex;
+  column-gap: 56px;
+  row-gap: 10px;
+  flex-wrap: wrap;
+}
+.menu__item {
+}
+.menu__link {
+  color: rgba(18, 18, 18, 0.4);
+  font-weight: 500;
+}
+.menu__link:hover {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.37);
+  color: rgba(3, 3, 3, 0.596);
+  transition: all 0.5s ease 0s;
+}
+@media (max-width: 1092px) {
+  .header__container {
+    gap: 50px;
+    min-height: 100px;
+  }
+  .menu__list {
+    column-gap: 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header__container {
+    min-height: 65px;
+  }
+  .main__title {
+    font-size: 44px;
+  }
+}
+/* ------------------main page------------------------- */
+
+.main {
+  padding-bottom: 80px;
+}
+.main__container {
+  display: flex;
+}
+.main__content {
+  flex: 1 1 50%;
+  /* flex: 1 1 60%; */
+  align-self: flex-end;
+  padding-top: 120px;
+  padding-bottom: 60px;
+  padding-right: 20px;
+}
+.main__title {
+  font-family: "CalSans";
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 1.2;
+  color: #121212;
+}
+.main__title span {
+  color: rgba(255, 100, 40, 1);
+}
+.main__title:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.main__text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  max-width: 420px;
+}
+.main__text:not(:last-child) {
+  margin-bottom: 30px;
+}
+.main__actions {
+}
+
+.actions-main {
+  display: flex;
+  align-items: center;
+}
+.actions-main__button {
+  text-align: center;
+  padding: 18.5px 48px;
+  background: #ff6428;
+  border-radius: 40px;
+  border: 2px solid;
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  line-height: 28px;
+  transition: all 0.8s ease 0s;
+}
+@media (max-width: 479px) {
+}
+.actions-main__button:hover {
+  color: rgba(255, 100, 40, 1);
+  background: rgb(255, 255, 255);
+}
+.actions-main__button:not(:last-child) {
+  margin-right: 40px;
+}
+.actions-main__icon {
+}
+.actions-main__icon:not(:last-child) {
+  margin-right: 27px;
+}
+.main__decor {
+  flex: 1 1 50%;
+  /* flex: 1 1 40%;*/
+}
+.main__image {
+  /* display: inline-block; */
+  position: relative;
+  margin-right: -135px;
+  max-width: 672px;
+  padding-bottom: 97.6%;
+}
+.main__image img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+
+  border-radius: 0 0 160px 375px;
+}
+.main__image::after {
+  content: "";
+  background: url("/img/logo.png") 0 0 no-repeat;
+  width: 80px;
+  height: 80px;
+  right: 36.6%;
+  bottom: 0;
+  transform: translate(0, 50%);
+  position: absolute;
+}
+@media (max-width: 1092px) {
+  .main__image img {
+    width: 100%;
+  }
+  .main__container {
+    flex: 0 0 60%;
+    padding-bottom: 0;
+  }
+  .main__decor {
+    flex: 0 0 40%;
+  }
+}
+@media (max-width: 767.98px) {
+  .main__content {
+    flex: 1 1 100%;
+    padding-right: 0;
+    padding-top: 80px;
+  }
+  .header__container {
+    min-height: 100px;
+  }
+  .main__decor {
+    display: none;
+  }
+}
+@media (max-width: 479.98px) {
+  .header__container {
+    gap: 15px;
+  }
+  .menu {
+    padding: 0;
+  }
+  .menu__list {
+    column-gap: 20px;
+  }
+  .header__logo {
+    width: 28px;
+    overflow: hidden;
+    flex: 0 0 28px;
+  }
+}
+@media (max-width: 479px) {
+  .actions-main {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .actions-main__button {
+    flex: 1 1 100%;
+  }
+  .actins-main__button:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 15px;
+  }
+}

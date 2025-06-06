@@ -1,0 +1,19 @@
+@use 'var' as *;
+.input {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $input-color;
+  align-items: left;
+  border: 1px solid $input-border;
+  border-radius: 20px;
+  transition: background-color, color, 0.5s ease-out;
+  &:hover {
+    color: $title-color;
+  }
+  &:focus {
+    border-color: $title-color;
+    color: $title-color;
+  }
+  // overflow: hidden; //для скрытия не вмещающегося контента
+}

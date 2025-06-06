@@ -1,0 +1,195 @@
+.footer {
+
+  &__top {
+    display: flex;
+    height: 240px;
+  }
+
+  &__inner {
+    max-width: 200px;
+    margin-right: 69px;
+  }
+
+  &__input {
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    max-width: 200px;
+    font-size: 14px;
+    padding: 12px 34px;
+    letter-spacing: 1px;
+    transition: color 0.3s, box-shadow 0.3s, background-color 0.3s, fill 0.3s ease-in-out;
+
+    & svg {
+      transition: fill 0.3s ease-in-out;
+    }
+
+    &:hover {
+      color: $orange;
+      background-color: $wite;
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+
+      & svg {
+        fill: $orange;
+      }
+    }
+
+    &:focus {
+      color: $orange;
+      background-color: rgba(255, 122, 80, 0.1);
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+
+      & svg {
+        fill: $orange;
+      }
+    }
+
+    &:active {
+      background-color: $silver;
+      box-shadow: none;
+
+      & svg {
+        fill: $orange;
+      }
+    }
+  }
+
+  &__icon {
+    fill: $wite;
+    margin-right: 15px;
+  }
+
+  &__list {
+    width: 571px;
+    height: 175px;
+    margin-right: 70px;
+    display: grid;
+    grid-template-columns: 39% 29% 32%;
+  }
+
+  &__link {
+    letter-spacing: 0.01em;
+    border-radius: 5px;
+    outline: 1px solid rgba(255, 255, 255, 0);
+    transition: color 0.3s, box-shadow 0.3s, background-color 0.3s, text-shadow 0.3s ease-in-out;
+
+    &:hover {
+      color: $orange;
+    }
+
+    &:focus {
+      color: $dark-blue;
+      background-color: rgba(255, 255, 255, 0.01);
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+    }
+
+    &:active {
+      color: $dark-blue;
+      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      box-shadow: none;
+    }
+  }
+
+  &__text {
+    height: 74px;
+    border-top: 1px solid $gray-light;
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.address {
+
+  &__item {
+    margin-bottom: 15px;
+    height: 32px;
+  }
+
+  &__link {
+    padding-left: 34px;
+    font-size: 16px;
+    font-style: normal;
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 5px;
+    outline: 1px solid rgba(255, 255, 255, 0);
+    transition: color 0.3s, box-shadow 0.3s, background-color 0.3s, text-shadow 0.3s ease-in-out;
+
+    &:hover {
+      color: $orange;
+    }
+
+    &:focus {
+      color: $dark;
+      background-color: rgba(255, 255, 255, 0.01);
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+    }
+
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px rgba(49, 53, 43, 0.5);
+      box-shadow: none;
+    }
+  }
+}
+
+.social {
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 13px;
+  }
+
+  &__link {
+    display: block;
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: $silver-light;
+    outline: 1px solid rgba(255, 255, 255, 0);
+    transition: background-color 0.3s, fill 0.3s, box-shadow 0.3s, background-color 0.3s ease-in-out;
+    & svg {
+      transition: fill 0.3s ease-in-out;
+    }
+
+    &:hover {
+      background-color: $orange;
+
+      & svg {
+        fill: $wite;
+      }
+    }
+
+    &:focus {
+      background-color: $light;
+      box-shadow: 0px 0px 0px 2px rgba(255, 104, 56, 0.7);
+
+      & svg {
+        fill: $dark-blue;
+      }
+    }
+
+    &:active {
+      background-color: $light;
+      box-shadow: none;
+
+      & svg {
+        fill: $orange;
+      }
+
+    }
+  }
+
+  &__icon {
+    fill: $dark-blue;
+  }
+}

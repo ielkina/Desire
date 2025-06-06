@@ -1,0 +1,37 @@
+/************/
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Regular.woff2") format("woff2"), url("/font/Poppins-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: 400;
+  font-display: swap;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Regular.woff2") format("woff2"), url("/font/Poppins-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: 600;
+  font-display: swap;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+@font-face {
+  font-family: "Poppins";
+  src: url("/font/Poppins-Bolt.woff2") format("woff2"), url("/font/Poppins-Bolt.woff") format("woff");
+  font-weight: normal;
+  font-style: 600;
+  font-display: swap;
+  font-stretch: normal;
+  unicode-range: U+0020-2212;
+}
+body {
+  font-size: 18px;
+  color: #000;
+}
+
+body {
+  font-size: calc(14px + 4 * (100vw - 320px) / 1600);
+  font-family: "Poppins", "Helvetica", "Arial", sans-serif;
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,5 @@
+Подключение будстраповских фалов к HTML документу
+----------------------------------------------------
+<link href="/bootstrap.min.css" rel="stylesheet" />
+<script src="/bootstrap.bundle.min.js"></script>
+<script src="/popper.min.js"></script>

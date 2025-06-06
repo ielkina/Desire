@@ -1,0 +1,90 @@
+// прижимаем футер к низу
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+// -------------------------------------
+// Убираем вертикальный скролл
+::-webkit-scrollbar {
+  width: 0;
+}
+
+// --------------------------------------
+a,
+input,
+button {
+  outline: transparent;
+}
+// --------------------------------------
+// стили для боди
+body {
+  // background-color: ;
+  // font-family: ;
+  // font-weight: ;
+  // font-size: ;
+  // line-height: ;
+  // color: ;
+}
+
+// стили для контейнера
+
+.container {
+  // max-width: ;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// скрытый элемент для скрин-ридера
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+// общие стили для кнопок
+button {
+  // background-color: ;
+  // cursor: pointer;
+  // transition: ;
+  &:hover {
+
+  }
+}
+
+// общие стили для линков
+
+a {
+  // background-color: ;
+  // cursor: pointer;
+  // transition: ;
+  &:hover {
+
+  }
+}
+
+// общие стили для титлов
+
+.title {
+  // font-family: ;
+  // font-weight: ;
+  // font-size: ;
+  // line-height: ;
+  // color: ;
+}

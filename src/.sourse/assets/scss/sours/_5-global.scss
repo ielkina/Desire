@@ -1,0 +1,51 @@
+.container {
+  @include container(15);
+}
+
+body {
+  @include body();
+  @include line-height(18px, 27px);
+  @include font-media(18, 14);
+}
+
+.sr-only {
+  @include sr-only();
+}
+
+.title {
+  text-transform: uppercase;
+  @include title();
+  @include line-height(72px, 107px);
+  @include font-media(72, 26);
+}
+
+.subtitle {
+  text-transform: uppercase;
+  @include subtitle();
+  @include line-height(36px, 53px);
+  @include font-media(36, 16);
+}
+
+.btn-bg {
+  @include btn-bg($white, $accent);
+  text-transform: uppercase;
+}
+
+.logo {
+  width: 197px;
+  height: 53px;
+  fill: $white;
+  stroke: $white;
+  display: inline-flex;
+  align-items: center;
+  transition: fill 0.3s, stroke 0.3s ease-in-out;
+
+  &:hover {
+    fill: $accent;
+    stroke: $accent;
+  }
+  // @include xsm() {
+  //   width: 130px;
+  //   // height: 53px;
+  // }
+}

@@ -1,0 +1,67 @@
+@use 'var' as *;
+
+.btn {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: $btn-color;
+  align-items: center;
+
+  background-color: $bg-btn;
+  border-radius: 21px;
+  border: 1px $bg-btn solid;
+  transition: background-color, color, 0.5s ease-out;
+  user-select: none; // запрет выделение текста внутри элемента
+  &:hover {
+    background-color: $btn-color;
+    color: $bg-btn;
+    color: $bg-btn;
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.btn-tag {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: $p-tab-color;
+  align-items: center;
+  background-color: transparent;
+  border-radius: 21px;
+  border: 1px solid $btn-tag-border;
+  transition: background-color, color, 0.5s ease-out;
+  user-select: none; // запрет выделение текста внутри элемента
+  &:hover {
+    background-color: $bg-btn-tab-active;
+    color: $p-tab-color-active;
+    border-color: $bg-btn-tab-active;
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.play {
+  width: 80px;
+  height: 80px;
+  background-color: #979797;
+  border-radius: 50px;
+  transition: all 0.3s;
+  &__go {
+    width: 0;
+    height: 0;
+    border-top: 18px solid transparent;
+    border-bottom: 18px solid transparent;
+    border-left: 28px solid #ffffffed; // цвет треугольника
+    margin: 22px auto;
+    display: block;
+    box-shadow: 0 1px 4px 0 #000000d9; // добавлена тень
+    // border-top-left-radius: 6px;
+    // border-bottom-left-radius: 6px;
+  }
+  &:active {
+    transform: scale(0.96);
+  }
+}

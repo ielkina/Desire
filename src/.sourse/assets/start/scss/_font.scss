@@ -1,0 +1,7 @@
+// @import "global"; //подключение глобальных стилей
+//Подключение шрифтов из Google Fonts
+// @import "font/font-link"; //подключение шрифтов из Google Fonts
+//Подключение локальных шрифтов  @font-face
+@import "font/font-local"; //подключение локальных шрифтов
+@import "font/font-media"; //подключение адаптивных шрифтов
+@import "font/font-secur"; //миксин подключения шрифтов безопасности

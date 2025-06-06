@@ -1,0 +1,91 @@
+.benefits {
+  padding-bottom: 100px;
+  @include xsm() {
+    padding-bottom: 50px;
+  }
+
+  &__inner {
+    display: flex;
+    @include xl() {
+      margin-right: 15px;
+    }
+    @include md() {
+      justify-content: center;
+      text-align: center;
+      margin-right: 0;
+    }
+  }
+
+  &__img {
+    object-fit: contain;
+    margin-right: 95px;
+    @include xl() {
+      margin-right: 15px;
+    }
+    @include lg() {
+      display: none;
+    }
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__title {
+    padding-top: 9px;
+    padding-left: 185px;
+    line-height: 1;
+    @include subtitle-decore();
+    margin-bottom: 53px;
+    @include xl() {
+      padding-left: 15px;
+    }
+    @include md() {
+      padding: 0;
+    }
+    @include xsm() {
+     margin-bottom: 26px;
+    }
+  }
+
+  &__list {
+    background-color: $violet;
+    color: #fff;
+    padding: 33px 0 45px 185px;
+    @include xl() {
+      padding: 33px 0 45px 88px;
+    }
+    @include lg() {
+      padding: 25px 15px;
+    }
+  }
+
+  &__item {
+    max-width: 316px;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+    @include lg() {
+      max-width: 100%;
+    }
+  }
+
+  &__item-num {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 1;
+    // @include line-height(36px, 53px);
+    @include font-media(36, 26);
+  }
+
+  &__item-title {
+    font-weight: 300;
+    font-size: 24px;
+    @include line-height(24px, 36px);
+    @include font-media(24, 23);
+  }
+
+  &__item-text {
+    color: $grey;
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/slider.css" />
+    <title>slider</title>
+  </head>
+  <body>
+    <h1>Slider JavaScript</h1>
+    <div class="slider">
+      <div class="slider-container">
+        <img class="slider-image fade" src="/img/baby-boss.png" alt="slider" />
+      </div>
+      <div class="slider-controls">
+
+        
+        <div class="slider-dots">
+          <span class="slider-dot active" onclick="changeIndex(0)"></span>
+          <span class="slider-dot" onclick="changeIndex(1)"></span>
+          <span class="slider-dot" onclick="changeIndex(2)"></span>
+        </div>
+        <button class="slider-nav slider-nav-left" onclick="nextIndex(-1)">
+          &lt;
+        </button>
+        <button class="slider-nav slider-nav-right" onclick="nextIndex(1)">
+          &gt;
+        </button>
+      </div>
+    </div>
+    <script src="/js/slider.js"></script>
+  </body>
+</html>
