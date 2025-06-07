@@ -176,6 +176,7 @@ body {
   align-items: left;
   border: 1px solid #dfdfdf;
   border-radius: 20px;
+  background-color: transparent;
   -webkit-transition: background-color,color,.5s ease-out;
   transition: background-color,color,.5s ease-out
 }
@@ -304,8 +305,7 @@ body {
 }
 
 .form__input {
-  border: 1px solid #383636;
-  background-color: #dfdfdf
+  border: 1px solid #383636
 }
 
 .form__btn {
