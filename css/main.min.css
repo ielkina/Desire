@@ -15,10 +15,6 @@ ol[class],ul[class] {
   list-style: none
 }
 
-a {
-  text-decoration: none
-}
-
 a,button {
   cursor: pointer
 }
@@ -28,14 +24,14 @@ img {
   display: block
 }
 
-input,textarea {
-  border-radius: 0;
-  outline: 0
-}
-
 button,input,select,textarea {
   color: inherit;
   border: 0
+}
+
+input,textarea {
+  border-radius: 0;
+  outline: 0
 }
 
 body,html {
@@ -82,9 +78,13 @@ body {
   color: #5a5a5a
 }
 
-.logo {
-  width: 97px;
-  height: 33px
+.link,.logo {
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out
+}
+
+.link,a {
+  position: relative
 }
 
 .link {
@@ -94,6 +94,51 @@ body {
   font-weight: 700;
   line-height: 1.375;
   font-size: 16
+}
+
+.link:hover {
+  color: #000
+}
+
+.link::after,a::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out
+}
+
+.link:hover::after,a:hover::after {
+  visibility: visible
+}
+
+a {
+  text-decoration: none
+}
+
+a:hover::after {
+  -webkit-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  transform: scaleX(1)
+}
+
+.logo {
+  height: 33px;
+  border-radius: 5px
+}
+
+.logo:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1)
 }
 
 .btn,.btn-tag {
@@ -209,39 +254,52 @@ body {
   line-height: 51px
 }
 
-.burger,.nav {
+.nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center
-}
-
-.nav {
+  align-items: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding-left: 56px;
   padding-top: 55px;
   padding-bottom: 55px
+}
+
+.burger,.burger__line {
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out
 }
 
 .burger {
   width: 37px;
   height: 29px;
   background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   -ms-flex-line-pack: justify;
-  align-content: space-between
+  align-content: space-between;
+  border-radius: 5px
+}
+
+.burger:hover {
+  -webkit-box-shadow: 0 1px 4px 0 rgba(0,0,0,.8509803922);
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.8509803922)
 }
 
 .burger__line {
-  background-color: #000;
+  background-color: rgba(54,56,56,.9019607843);
   border-radius: 15px
 }
 
@@ -252,7 +310,13 @@ body {
 
 .burger__line:nth-child(2),.burger__line:nth-child(4) {
   width: 37px;
-  height: 3px
+  height: 3px;
+  -webkit-transition: all .5s ease-out;
+  transition: all .5s ease-out
+}
+
+.burger__line:nth-child(2):hover,.burger__line:nth-child(4):hover {
+  background-color: #000
 }
 
 .footer {
