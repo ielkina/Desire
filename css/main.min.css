@@ -38,6 +38,64 @@ button,input,select,textarea {
   border: 0
 }
 
+body,html {
+  height: 100%
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100%
+}
+
+.main {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto
+}
+
+.footer {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto
+}
+
+.container {
+  max-width: 1133px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 2px
+}
+
+body {
+  background-color: #fff;
+  font-size: calc(14px + 2*(100vw - 340px)/793);
+  font-family: "OpenSans",sans-serif;
+  font-weight: 400;
+  line-height: 1.6875;
+  letter-spacing: normal;
+  color: #5a5a5a
+}
+
+.logo {
+  width: 97px;
+  height: 33px
+}
+
+.link {
+  font: inherit;
+  color: rgba(54,56,56,.9019607843);
+  font-family: "Montserrat";
+  font-weight: 700;
+  line-height: 1.375;
+  font-size: 16
+}
+
 .btn,.btn-tag {
   font-family: "Open Sans",sans-serif;
   font-weight: 600;
@@ -131,7 +189,7 @@ button,input,select,textarea {
   color: #363838
 }
 
-.title,.title-block,.title-sub {
+.block-title,.sub-title,.title {
   color: #363838;
   font-family: "Montserrat",sans-serif;
   font-weight: 700;
@@ -140,29 +198,59 @@ button,input,select,textarea {
   letter-spacing: 0
 }
 
-.title-block,.title-sub {
+.block-title,.sub-title {
   font-size: 60px;
   line-height: 80px
 }
 
-.title-block {
+.block-title {
   font-size: 36px;
   line-height: 51px
 }
 
-.text,body {
-  font-family: "Open Sans",sans-serif;
-  font-size: 16px;
-  line-height: 27px;
-  font-weight: 400;
-  letter-spacing: 0
+.burger,.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
 }
 
-.text {
-  color: #5a5a5a
+.nav {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-left: 56px;
+  padding-top: 55px;
+  padding-bottom: 55px
 }
 
-body {
-  text-align: left
+.burger {
+  width: 37px;
+  height: 29px;
+  background-color: #fff;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -ms-flex-line-pack: justify;
+  align-content: space-between
+}
+
+.burger__line {
+  background-color: #000;
+  border-radius: 15px
+}
+
+.burger__line:nth-child(1),.burger__line:nth-child(3) {
+  width: 24px;
+  height: 3px
+}
+
+.burger__line:nth-child(2),.burger__line:nth-child(4) {
+  width: 37px;
+  height: 3px
 }
 /*# sourceMappingURL=main.min.css.map */
