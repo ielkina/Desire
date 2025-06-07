@@ -176,6 +176,7 @@ body {
   align-items: left;
   border: 1px solid #dfdfdf;
   border-radius: 20px;
+  background-color: transparent;
   -webkit-transition: background-color,color,.5s ease-out;
   transition: background-color,color,.5s ease-out
 }
@@ -189,7 +190,7 @@ body {
   color: #363838
 }
 
-.block-title,.sub-title,.title {
+.sub-title,.title,.title-box {
   color: #363838;
   font-family: "Montserrat",sans-serif;
   font-weight: 700;
@@ -198,12 +199,12 @@ body {
   letter-spacing: 0
 }
 
-.block-title,.sub-title {
+.sub-title,.title-box {
   font-size: 60px;
   line-height: 80px
 }
 
-.block-title {
+.title-box {
   font-size: 36px;
   line-height: 51px
 }
@@ -252,5 +253,76 @@ body {
 .burger__line:nth-child(2),.burger__line:nth-child(4) {
   width: 37px;
   height: 3px
+}
+
+.footer {
+  background-color: #dfdfdf
+}
+
+.footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-top: 60px;
+  padding-bottom: 60px
+}
+
+.footer__form {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column
+}
+
+.footer__form,.footer__form-send {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+
+.footer__form-title {
+  font-size: 16px;
+  line-height: 0;
+  padding-bottom: 14px
+}
+
+.footer__form-text {
+  max-width: 474px;
+  width: 100%;
+  padding-bottom: 16px
+}
+
+.footer__form-link {
+  padding-bottom: 22px
+}
+
+.form__btn,.form__input {
+  width: 100%;
+  padding: 6px 12px
+}
+
+.form__input {
+  border: 1px solid #383636
+}
+
+.form__btn {
+  max-width: 160px
+}
+
+.footer__copy {
+  background-color: #363838;
+  text-align: center;
+  padding-top: 41px;
+  padding-bottom: 41px
+}
+
+.footer__copy-link {
+  font-family: "OpenSans",sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  color: #a1a1a1
 }
 /*# sourceMappingURL=main.min.css.map */
