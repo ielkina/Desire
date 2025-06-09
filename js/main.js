@@ -1,1 +1,96 @@
-!function(){"use strict";!function(){let e=new Image;e.onload=e.onerror=function(){!function(e){let n=!0===e?"webp":"no-webp";document.documentElement.classList.add(n)}(2==e.height)},e.src="data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA"}(),$((function(){$(".header__btn").on("click",(function(){$(".rightside-menu").removeClass("rightside-menu--close")})),$(".rightside-menu__close").on("click",(function(){$(".rightside-menu").addClass("rightside-menu--close")}))}))}();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/js/main.js":
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_webp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/webp.js */ \"./src/js/modules/webp.js\");\n\n_modules_webp_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();\n// import * as modulesFunctions from \"./modules/modals.js\";\n// modulesFunctions.modals();\n//модально окно первой страници переписать\n$(function () {\n  $('.header__btn').on('click', function(){\n    $('.rightside-menu').removeClass('rightside-menu--close');\n  });\n  $('.rightside-menu__close').on('click', function(){\n    $('.rightside-menu').addClass('rightside-menu--close');\n  });\n})\n\n//# sourceURL=webpack://new/./src/js/main.js?");
+
+/***/ }),
+
+/***/ "./src/js/modules/webp.js":
+/*!********************************!*\
+  !*** ./src/js/modules/webp.js ***!
+  \********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   isWebp: function() { return /* binding */ isWebp; }\n/* harmony export */ });\n//Проверка поддержки webp, добавление класса webp или no-webp для HTML\nfunction isWebp() {\n\t//проверка поддержки webp\n\tfunction testWebp(callback) {\n\t\tlet webP = new Image();\n\t\twebP.onload = webP.onerror = function () {\n\t\t\tcallback(webP.height == 2);\n\t\t};\n\t\twebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';\n\t}\n\t//Добавление класса _webp или _no-webp для HTML\n\ttestWebp(function (support) {\n\t\tlet className = support === true ? 'webp' : 'no-webp';\n\t\tdocument.documentElement.classList.add(className);\n\t});\n}\n\n\n//# sourceURL=webpack://new/./src/js/modules/webp.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	!function() {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = function(exports, definition) {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	!function() {
+/******/ 		__webpack_require__.o = function(obj, prop) { return Object.prototype.hasOwnProperty.call(obj, prop); }
+/******/ 	}();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/js/main.js");
+/******/ 	
+/******/ })()
+;
