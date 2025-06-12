@@ -304,6 +304,7 @@ main {
   font-size: 'Open Sans';
   border-radius: 21px;
   font-weight: 600;
+  line-height: 1.75;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
