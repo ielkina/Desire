@@ -16,7 +16,17 @@
   \************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_webp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/webp.js */ \"./src/js/modules/webp.js\");\n\n_modules_webp_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();\n// import * as modulesFunctions from \"./modules/modals.js\";\n// modulesFunctions.modals();\n//модально окно первой страници переписать\n$(function () {\n  $('.header__btn').on('click', function(){\n    $('.rightside-menu').removeClass('rightside-menu--close');\n  });\n  $('.rightside-menu__close').on('click', function(){\n    $('.rightside-menu').addClass('rightside-menu--close');\n  });\n})\n\n//# sourceURL=webpack://new/./src/js/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_webp_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/webp.js */ \"./src/js/modules/webp.js\");\n/* harmony import */ var _modules_active_link_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/active-link.js */ \"./src/js/modules/active-link.js\");\n\r\n_modules_webp_js__WEBPACK_IMPORTED_MODULE_0__.isWebp();\r\n// import * as modulesFunctions from \"./modules/modals.js\";\r\n// modulesFunctions.modals();\r\n//модально окно первой страници переписать\r\n$(function () {\r\n  $('.header__btn').on('click', function(){\r\n    $('.rightside-menu').removeClass('rightside-menu--close');\r\n  });\r\n  $('.rightside-menu__close').on('click', function(){\r\n    $('.rightside-menu').addClass('rightside-menu--close');\r\n  });\r\n})\r\n\r\n;\r\n\r\n(0,_modules_active_link_js__WEBPACK_IMPORTED_MODULE_1__.setActiveNavLink)();\n\n//# sourceURL=webpack://new/./src/js/main.js?");
+
+/***/ }),
+
+/***/ "./src/js/modules/active-link.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/active-link.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   setActiveNavLink: function() { return /* binding */ setActiveNavLink; }\n/* harmony export */ });\nfunction setActiveNavLink(\r\n  selector = '.link',\r\n  activeClass = 'active--link'\r\n) {\r\n  const links = document.querySelectorAll(selector);\r\n  let currentPath = window.location.pathname.split('/').pop();\r\n  if (!currentPath || currentPath === '/') currentPath = 'index.html';\r\n\r\n  links.forEach(link => {\r\n    const href = link.getAttribute('href');\r\n    if (href === currentPath) {\r\n      link.classList.remove('link');\r\n      link.classList.add(activeClass);\r\n    } else {\r\n      link.classList.add('link');\r\n      link.classList.remove(activeClass);\r\n    }\r\n  });\r\n}\r\n\n\n//# sourceURL=webpack://new/./src/js/modules/active-link.js?");
 
 /***/ }),
 
